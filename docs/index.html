@@ -33,11 +33,33 @@
     <link rel="stylesheet" href="StackerStyle.css">
 </head>
 <body>
-    <h1>Shader Stacker</h1>
-    <p>
-        <a href="https://github.com/KarlTheCool/Shader-Stacker">Check it out on Github</a>
-    </p>
-    <h2>Documentation</h2>
+<main class="content">
+    <header class="header">
+        <div class="header--picture"></div>
+        <div class="header--titles">
+            <h1 class="header--shader">Shader</h1>
+            <h1 class="header--stacker">Stacker</h1>
+        </div>
+    </header>
+    <nav class="nav">
+        <a class="nav--element" href="https://github.com/KarlTheCool/Shader-Stacker">Github</a>
+        <a class="nav--element" href="https://godotengine.org/asset-library/asset">Asset Library</a>
+        <a class="nav--element" href="#documentation">About</a>
+        <a class="nav--element" href="#documentation">Docs</a>
+        <a class="nav--element" href="#inspirations">Inspirations</a>
+    </nav>
+    <h2 class="section" id="about">About</h2>
+        <p>
+            Sprite stacking is a 2.5D technique done by drawing cross sections of a 3D object at a slight offset for each layer.
+        </p>
+        <p>
+            Traditionally, this is done by drawing each layer as as seperate sprite. Shader stacker speeds up this process by calculating each pixel on the GPU.
+            The library is written in GLSL for the Godot engine and includes support for viewing models directly in the scene editor.
+        </p>
+        <p>
+            Get the code on Github or add the package through the Godot Asset Library.
+        </p>
+    <h2 class="section" id="docs">Documentation</h2>
         <ul>
             <li>
                 Use the scenes
@@ -49,13 +71,21 @@
                 Make sure the SsGlobals script is set as a <a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/singletons_autoload.html">singleton</a>
             </li>
         </ul>
-        
-    <h2>Shout-Outs</h2>
+    <h2 class="section" id="inspirations">Inspirations</h2>
     <p>
         These projects do <strong>not</strong> use the Shader Stacker library, but played a big part in inspiring me to make it. They're great examples of how cool the effect can be.
     </p>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_BztMPC5Kk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/r6sBSlhLNXs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/VaKDt1tGtQI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="videos">
+        <div class="videos--aspect">
+            <iframe src="https://www.youtube-nocookie.com/embed/_BztMPC5Kk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="videos--aspect">
+            <iframe src="https://www.youtube-nocookie.com/embed/r6sBSlhLNXs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="videos--aspect">
+            <iframe src="https://www.youtube-nocookie.com/embed/VaKDt1tGtQI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</main>
 </body>
 </html>

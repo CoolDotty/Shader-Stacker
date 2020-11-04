@@ -1,3 +1,146 @@
-body {
+html, body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+    width: 100%;
+    background-color: #462521;
+    margin: 0;
+}
+
+.content {
+    margin: auto;
+    width: 100%;
+    max-width: 65em;
+    background-color: #FFE0B5;
+}
+
+.header {
+    width: 100%;
+    font-size: 7em;
+
+    display: flex;
+
+    color: white;
+}
+
+.header--picture {
+    width: 3em;
+    height: auto;
+
+    background-image: url("teapot.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.header--titles {
+    flex-grow: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header--shader {
+    display: block;
+    font-size: unset;
+    margin: unset;
+    font-weight: unset;
+
+    width: 100%;
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    background-color: #CA2E55;
+}
+
+.header--stacker {
+    display: block;
+    font-size: unset;
+    margin: unset;
+    font-weight: unset;
+
+    width: 100%;
+    text-align: right;
+    padding-left: 1em;
+    padding-right: 1em;
+    
+
+    background-color: #BDB246;
+}
+
+.nav {
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #462521;
+}
+
+.nav--element:nth-child(odd) {
+    background: #CA2E55;
+}
+
+.nav--element:nth-child(even) {
+    background: #BDB246;
+}
+
+.nav--element {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav--element:hover, .nav--element:focus {
+    filter: invert(1);
+}
+
+.section {
+    color: white;
+    background-color: #462521;
+
+    display: block;
+    font-size: 2em;
+    margin: unset;
+    font-weight: unset;
+}
+
+.videos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.videos--aspect {
+    position: relative;
+
+    width: 100%;
+    padding-top: calc(9 / 16 * 100%);
+}
+
+.videos--aspect > iframe {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+    .header {
+        font-size: 4em;
+    }
+
+    .header--picture {
+        width: 8em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        font-size: 3em;
+    }
+
+    .header--picture {
+        width: 3em;
+    }
 }
