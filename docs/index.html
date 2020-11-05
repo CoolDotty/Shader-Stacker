@@ -31,6 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="StackerStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
 <main class="content">
@@ -48,7 +49,8 @@
         <a class="nav--element" href="#documentation">Docs</a>
         <a class="nav--element" href="#inspirations">Inspirations</a>
     </nav>
-    <h2 class="section" id="about">About</h2>
+    <h2 class="section--title" id="about"><a href="#about" class="section--target"></a>About</h2>
+    <div class="section">
         <p>
             Sprite stacking is a 2.5D technique done by drawing cross sections of a 3D object at a slight offset for each layer.
         </p>
@@ -59,33 +61,79 @@
         <p>
             Get the code on Github or add the package through the Godot Asset Library.
         </p>
-    <h2 class="section" id="docs">Documentation</h2>
-        <ul>
-            <li>
-                Use the scenes
-            </li>
-            <li>
-                Magicavoxel is good but there's other options
-            </li>
-            <li>
-                Make sure the SsGlobals script is set as a <a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/singletons_autoload.html">singleton</a>
-            </li>
-        </ul>
-    <h2 class="section" id="inspirations">Inspirations</h2>
-    <p>
-        These projects do <strong>not</strong> use the Shader Stacker library, but played a big part in inspiring me to make it. They're great examples of how cool the effect can be.
-    </p>
-    <div class="videos">
-        <div class="videos--aspect">
-            <iframe src="https://www.youtube-nocookie.com/embed/_BztMPC5Kk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="videos--aspect">
-            <iframe src="https://www.youtube-nocookie.com/embed/r6sBSlhLNXs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="videos--aspect">
-            <iframe src="https://www.youtube-nocookie.com/embed/VaKDt1tGtQI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <h2 class="section--title" id="docs"><a href="#docs" class="section--target"></a>Documentation</h2>
+    <div class="section">
+        <h3 class="docs--heading">Getting Started</h3>
+        <p>
+            Download the library either by adding the repository to your Godot project or through the asset manager.
+            If you want to learn through example, open <code class="docs--code--inline">example.tscn</code> and take a look.
+        </p>
+        <h3 class="docs--heading">Creating a Stacked Sprite Sheet</h3>
+        <p>
+            <a href="https://ephtracy.github.io/" class="docs--link">MagicaVoxel</a> is free supports exporting to one with the slice option.
+            Other software exists and you also have the option of making one from scratch.
+        </p>
+        <h3 class="docs--heading">Stacked Sprite</h3>
+        <p>
+            A template scene exists in the scenes folder of the library. instantiate  of of them in your scene.
+        </p>
+        <p>
+            Set your slice sheet via the <code class="docs--code--inline">slice_sheet</code> variable in the inspector. Then set the amount of rows and columns
+            your sheet has. For MagicaVoxel exports, you just need to set the <code class="docs--code--inline">row</code> value to be equal to the Z value of your model.
+        </p>
+        <p>
+            Z index is dynamically calculate to maintain perspective. If you wish to set the z value manually, enable the
+            <code class="docs--code--inline">static_z</code> option.
+        </p>
+        <p>
+            <code class="docs--code--inline">center</code> is used to center the sprite around a layer other than the bottom-most one. Handy for making holes.
+        </p>
+        <p>
+            If anything ever looks off in the editor, try closing and re-opening the scene.
+        </p>
+        <h3 class="docs--heading">Billboards</h3>
+        <p>
+            Billboards are sprites that always face the camera. It can be handy to convert spherical objects to be billboards to increase performance.
+        </p>
+        <p>
+            Billboards have two options in the inspector.
+        </p>
+        <p>
+            <code class="docs--code--inline">static_z</code> stops the z index from being calculate dynamically. Handy if the billboard is a child of an object which
+            does dynamically calculate it&apos;s index.
+        </p>
+        <p>
+            <code class="docs--code--inline">parent_bonded</code> treats the billboard as if it is attached to a parent stacked sprite. Maintining its perspective
+            when rotation the camera. Ex: Leaves child of a tree = bonded. Player child of a level = not bonded.
+        </p>
+        <h3 class="docs--heading">SsGlobals</h3>
+        <p>
+            Make sure this is autoloaded as a singleton in your project. This manages the <code class="docs--code--inline">cam_pitch</code>
+            which you can adjust to make your game more isometric. Currently it uses the
+            <a class="docs--link" href="https://twitter.com/moppin_/status/1229247206164582402">Moppin_ method</a> which is extremely slow.
+        </p>
+    </div>
+    <h2 class="section--title" id="inspirations"><a href="#inspirations" class="section--target"></a>Inspirations</h2>
+    <div class="section">
+        <p>
+            These projects do <strong>not</strong> use the Shader Stacker library, but played a big part in inspiring me to make it. They're great examples of how cool the effect can be.
+        </p>
+        <div class="videos">
+            <div class="videos--aspect">
+                <iframe src="https://www.youtube-nocookie.com/embed/_BztMPC5Kk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="videos--aspect">
+                <iframe src="https://www.youtube-nocookie.com/embed/r6sBSlhLNXs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="videos--aspect">
+                <iframe src="https://www.youtube-nocookie.com/embed/VaKDt1tGtQI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 </main>
+<footer class="footer">
+    Library created by <a class="footer--link" href="https://ka.rlphilli.ps">Karl</a> and developed with <span class="heart"></span> by all its maintainers
+</footer>
 </body>
 </html>
