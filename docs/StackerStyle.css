@@ -275,6 +275,7 @@ a[href^="https://"]:after {
     color: transparent;
     background-image: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet, red, orange);
     background-size: 900% 100%;
+    -webkit-background-clip: text;
     background-clip: text;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-weight: 900;
