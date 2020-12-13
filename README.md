@@ -11,4 +11,4 @@ Don't worry. It should be clear by reading it but just in case it's unclear for 
 * If you make a game with this, license it however you please. Just include a copy of the MPL.
    * Ex: Chuck a copy of the license with the name "Shader-Stacker" in a "Licenses" folder.
 * You can do whatever you want with the sample assets.
-* A link back to the repo as attribution would be nice but not strictly neccisary.
+* A link back to the repo as attribution would be nice but not strictly neccesary.
