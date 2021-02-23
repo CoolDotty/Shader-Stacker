@@ -35,8 +35,11 @@ func _process(_delta):
 	)
 	base_rect.position = -base_rect.size / 2
 	
+	var height_unit = cam_up * (SsGlobals.cam_pitch if not Engine.editor_hint else 1)
+	var height_offset = height * height_unit
+	base_rect.position += height_offset
 	for i in range(0, columns * rows):
-		base_rect.position += cam_up * (SsGlobals.cam_pitch if not Engine.editor_hint else 1)
+		base_rect.position += height_unit
 		VisualServer.canvas_item_add_texture_rect_region(
 			ci_rid,
 			base_rect,
