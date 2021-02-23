@@ -1,3 +1,4 @@
+// DEPRECATED
 shader_type canvas_item;
 render_mode unshaded;
 // TODO: Uncomment this when Godot ports this statement and remove all lowp
