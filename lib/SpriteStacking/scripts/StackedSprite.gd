@@ -5,7 +5,7 @@ export var slice_sheet : Texture = null setget set_slice_sheet  # LIMITATION: Al
 export var columns : int = 1 setget set_columns
 export var rows : int = 1 setget set_rows
 export var static_z : bool = false setget set_static_z # Don't dynamically calculate Z value
-export var center : int = 0 setget set_center;
+export var height : int = 0 setget set_center; # 0 is on the floor. Adjust values if stack is above/below the floor
 
 var layer_count : int;
 
@@ -21,7 +21,7 @@ func sync_material():
 	Mat.set_shader_param("rows", rows);
 	Mat.set_shader_param("layer_count", layer_count);
 	Mat.set_shader_param("stretch", SsGlobals.cam_pitch if not Engine.editor_hint else 1);
-	Mat.set_shader_param("center", center);
+	Mat.set_shader_param("center", height);
 
 func _ready():
 	setup_shader();
@@ -80,5 +80,5 @@ func set_static_z(new_value):
 	on_value_change();
 
 func set_center(new_value):
-	center = new_value;
+	height = new_value;
 	on_value_change();
