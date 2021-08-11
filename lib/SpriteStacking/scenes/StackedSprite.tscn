@@ -2,5 +2,6 @@
 
 [ext_resource path="res://lib/SpriteStacking/scripts/StackedSprite.gd" type="Script" id=2]
 
-[node name="StackedSprite" type="Node2D"]
+[node name="StackedSprite" type="Sprite"]
 script = ExtResource( 2 )
+rows = 1

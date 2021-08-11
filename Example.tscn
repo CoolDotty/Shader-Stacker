@@ -1,6 +1,5 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://lib/SpriteStacking/shaders/StackedSprite.shader" type="Shader" id=1]
 [ext_resource path="res://lib/SpriteStacking/scenes/StackedSprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ExampleCam.gd" type="Script" id=3]
 [ext_resource path="res://trunk.png" type="Texture" id=4]
@@ -12,420 +11,15 @@
 [ext_resource path="res://lib/SpriteStacking/shaders/Billboard.shader" type="Shader" id=10]
 [ext_resource path="res://lib/SpriteStacking/scenes/Billboard.tscn" type="PackedScene" id=11]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 6 )
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 43
-shader_param/layer_count = 43
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 8 )
-
-[sub_resource type="ShaderMaterial" id=67]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 43
-shader_param/layer_count = 43
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 8 )
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 61
-shader_param/layer_count = 61
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 7 )
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=7]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=8]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=9]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=10]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=11]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=12]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=13]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=14]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=15]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=16]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=17]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=18]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=19]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=20]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=21]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=22]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=23]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=24]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=25]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=26]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=27]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=28]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=29]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=30]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=31]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=32]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=33]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=34]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=35]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=36]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=37]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=38]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=39]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
 [sub_resource type="ShaderMaterial" id=40]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=41]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=61]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=62]
 shader = ExtResource( 10 )
 shader_param/stretch = 1
 
-[sub_resource type="ShaderMaterial" id=63]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=64]
+[sub_resource type="ShaderMaterial" id=42]
 shader = ExtResource( 10 )
 shader_param/stretch = 1
 
-[sub_resource type="ShaderMaterial" id=65]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=66]
+[sub_resource type="ShaderMaterial" id=44]
 shader = ExtResource( 10 )
 shader_param/stretch = 1
 
@@ -440,14 +34,12 @@ zoom = Vector2( 0.35, 0.35 )
 script = ExtResource( 3 )
 
 [node name="Arch" parent="." instance=ExtResource( 2 )]
-material = SubResource( 1 )
 position = Vector2( 2.58116, 95.2666 )
 z_index = 106
 slice_sheet = ExtResource( 6 )
 rows = 50
 
 [node name="PinkTree" parent="." instance=ExtResource( 2 )]
-material = SubResource( 2 )
 position = Vector2( -117.811, -38.6448 )
 rotation = 2.15723
 z_index = -27
@@ -455,14 +47,12 @@ slice_sheet = ExtResource( 8 )
 rows = 43
 
 [node name="PinkTree2" parent="." instance=ExtResource( 2 )]
-material = SubResource( 67 )
 position = Vector2( -85.2928, -59.5809 )
 z_index = -48
 slice_sheet = ExtResource( 8 )
 rows = 43
 
 [node name="Teapot" parent="." instance=ExtResource( 2 )]
-material = SubResource( 3 )
 z_index = 11
 slice_sheet = ExtResource( 7 )
 rows = 61
@@ -471,133 +61,114 @@ rows = 61
 position = Vector2( 137.284, -46.732 )
 
 [node name="Grass" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 4 )
 position = Vector2( 12.6376, 7.47222 )
 z_index = -27
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass2" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 5 )
 position = Vector2( 0.839203, 7.94416 )
 z_index = -27
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass3" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 6 )
 position = Vector2( 5.08664, 0.157192 )
 z_index = -35
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass4" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 7 )
 position = Vector2( -4.35211, -0.314747 )
 z_index = -35
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass5" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 8 )
 position = Vector2( 15.9412, -1.73055 )
 z_index = -36
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass6" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 9 )
 position = Vector2( 6.03053, -8.8096 )
 z_index = -44
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass7" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 10 )
 position = Vector2( -8.59952, -12.3491 )
 z_index = -47
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass8" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 11 )
 position = Vector2( -3.17224, -4.79814 )
 z_index = -40
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass9" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 12 )
 position = Vector2( -12.611, 0.629139 )
 z_index = -34
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass10" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 13 )
 position = Vector2( -10.0153, 10.7758 )
 z_index = -24
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass11" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 14 )
 position = Vector2( -3.17224, 19.2707 )
 z_index = -15
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass12" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 15 )
 position = Vector2( 13.1096, 16.675 )
 z_index = -18
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass13" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 16 )
 position = Vector2( 6.97442, 18.3268 )
 z_index = -16
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass14" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 17 )
 position = Vector2( 21.6045, 8.18014 )
 z_index = -27
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass15" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 18 )
 position = Vector2( 15.2333, -8.33767 )
 z_index = -43
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass16" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 19 )
 position = Vector2( -0.104645, -17.7764 )
 z_index = -53
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass17" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 20 )
 position = Vector2( -19.69, -6.68589 )
 z_index = -41
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass18" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 21 )
 position = Vector2( -21.5778, 10.5398 )
 z_index = -24
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass19" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 22 )
 position = Vector2( -14.2627, 23.5181 )
 z_index = -11
 slice_sheet = ExtResource( 5 )
@@ -607,133 +178,114 @@ rows = 10
 position = Vector2( 111.287, -73.4679 )
 
 [node name="Grass" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 23 )
 position = Vector2( 12.6376, 7.47222 )
 z_index = -54
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass2" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 24 )
 position = Vector2( 0.839203, 7.94416 )
 z_index = -54
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass3" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 25 )
 position = Vector2( 5.08664, 0.157192 )
 z_index = -61
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass4" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 26 )
 position = Vector2( -4.35211, -0.314747 )
 z_index = -62
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass5" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 27 )
 position = Vector2( 15.9412, -1.73055 )
 z_index = -63
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass6" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 28 )
 position = Vector2( 6.03053, -8.8096 )
 z_index = -70
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass7" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 29 )
 position = Vector2( -8.59952, -12.3491 )
 z_index = -74
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass8" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 30 )
 position = Vector2( -3.17224, -4.79814 )
 z_index = -66
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass9" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 31 )
 position = Vector2( -12.611, 0.629139 )
 z_index = -61
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass10" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 32 )
 position = Vector2( -10.0153, 10.7758 )
 z_index = -51
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass11" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 33 )
 position = Vector2( -3.17224, 19.2707 )
 z_index = -42
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass12" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 34 )
 position = Vector2( 13.1096, 16.675 )
 z_index = -45
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass13" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 35 )
 position = Vector2( 6.97442, 18.3268 )
 z_index = -43
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass14" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 36 )
 position = Vector2( 21.6045, 8.18014 )
 z_index = -53
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass15" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 37 )
 position = Vector2( 15.2333, -8.33767 )
 z_index = -70
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass16" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 38 )
 position = Vector2( -0.104645, -17.7764 )
 z_index = -79
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass17" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 39 )
 position = Vector2( -19.69, -6.68589 )
 z_index = -68
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass18" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 40 )
 position = Vector2( -21.5778, 10.5398 )
 z_index = -51
 slice_sheet = ExtResource( 5 )
 rows = 10
 
 [node name="Grass19" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 41 )
 position = Vector2( -14.2627, 23.5181 )
 z_index = -38
 slice_sheet = ExtResource( 5 )
@@ -742,14 +294,13 @@ rows = 10
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="BirchTree" parent="Node2D" instance=ExtResource( 2 )]
-material = SubResource( 61 )
 position = Vector2( 134.44, -52.1898 )
 z_index = -40
 slice_sheet = ExtResource( 4 )
 rows = 50
 
 [node name="Leaves" parent="Node2D/BirchTree" instance=ExtResource( 11 )]
-material = SubResource( 62 )
+material = SubResource( 40 )
 position = Vector2( 0, -50.398 )
 z_index = 1
 texture = ExtResource( 9 )
@@ -757,14 +308,13 @@ static_z = true
 parent_bonded = true
 
 [node name="BirchTree2" parent="Node2D" instance=ExtResource( 2 )]
-material = SubResource( 63 )
 position = Vector2( 97.0227, -65.9987 )
 z_index = -54
 slice_sheet = ExtResource( 4 )
 rows = 50
 
 [node name="Leaves" parent="Node2D/BirchTree2" instance=ExtResource( 11 )]
-material = SubResource( 64 )
+material = SubResource( 42 )
 position = Vector2( 0, -50.398 )
 z_index = 1
 texture = ExtResource( 9 )
@@ -772,14 +322,13 @@ static_z = true
 parent_bonded = true
 
 [node name="BirchTree3" parent="Node2D" instance=ExtResource( 2 )]
-material = SubResource( 65 )
 position = Vector2( 133.995, -73.1259 )
 z_index = -61
 slice_sheet = ExtResource( 4 )
 rows = 50
 
 [node name="Leaves" parent="Node2D/BirchTree3" instance=ExtResource( 11 )]
-material = SubResource( 66 )
+material = SubResource( 44 )
 position = Vector2( 0, -50.398 )
 z_index = 1
 texture = ExtResource( 9 )
