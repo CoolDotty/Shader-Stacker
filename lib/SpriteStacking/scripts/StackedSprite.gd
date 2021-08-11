@@ -6,7 +6,6 @@ var _xx = position.x;
 var _yy = position.y;
 var _scale = 1;
 var _heightScale = 1;
-var rot_deg = 70;
 var _imageAngle;
 export(float, 0, 90, 0.5) var cam_pitch_deg = 45 
 var _perspective 
@@ -66,7 +65,7 @@ func _ready():
 	# Make this node the parent.
 #	VisualServer.canvas_item_set_parent(ci_rid, get_canvas_item())
 
-	_imageAngle = deg2rad(rot_deg - 45)
+	_imageAngle = deg2rad(rotation - 45)
 	
 	set_process(false)
 	
@@ -101,13 +100,13 @@ func _ready():
 func _process(delta):
 	
 	# In case of testing the rotation_degree:
-#	rot_deg += 1                                      
+#	rotation += 1                                      
 	# In case of testing the camera_pitch:
 #	counter += 0.02                                    
 #	cam_pitch_deg =  ((sin(counter ) + 1) / 2) * 90      
 
 	_perspective = deg2rad(cam_pitch_deg)
-	_imageAngle = deg2rad(rot_deg - 45)
+	_imageAngle = deg2rad(rotation)
 	
 #	Switch on the line below in case of using VisualServer instead of draw_polyon:
 #	VisualServer.canvas_item_clear(ci_rid);
