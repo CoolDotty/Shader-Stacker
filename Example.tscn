@@ -11,15 +11,15 @@
 [ext_resource path="res://lib/SpriteStacking/shaders/Billboard.shader" type="Shader" id=10]
 [ext_resource path="res://lib/SpriteStacking/scenes/Billboard.tscn" type="PackedScene" id=11]
 
-[sub_resource type="ShaderMaterial" id=40]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 10 )
 shader_param/stretch = 1
 
-[sub_resource type="ShaderMaterial" id=42]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 10 )
 shader_param/stretch = 1
 
-[sub_resource type="ShaderMaterial" id=44]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 10 )
 shader_param/stretch = 1
 
@@ -300,7 +300,7 @@ slice_sheet = ExtResource( 4 )
 rows = 50
 
 [node name="Leaves" parent="Node2D/BirchTree" instance=ExtResource( 11 )]
-material = SubResource( 40 )
+material = SubResource( 1 )
 position = Vector2( 0, -50.398 )
 z_index = 1
 texture = ExtResource( 9 )
@@ -314,7 +314,7 @@ slice_sheet = ExtResource( 4 )
 rows = 50
 
 [node name="Leaves" parent="Node2D/BirchTree2" instance=ExtResource( 11 )]
-material = SubResource( 42 )
+material = SubResource( 2 )
 position = Vector2( 0, -50.398 )
 z_index = 1
 texture = ExtResource( 9 )
@@ -328,7 +328,7 @@ slice_sheet = ExtResource( 4 )
 rows = 50
 
 [node name="Leaves" parent="Node2D/BirchTree3" instance=ExtResource( 11 )]
-material = SubResource( 44 )
+material = SubResource( 3 )
 position = Vector2( 0, -50.398 )
 z_index = 1
 texture = ExtResource( 9 )

@@ -1,5 +1,5 @@
 tool
-extends Sprite
+extends Node2D
 
 
 var _xx = position.x;
