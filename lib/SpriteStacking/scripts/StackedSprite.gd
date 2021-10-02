@@ -7,7 +7,6 @@ var _yy = position.y;
 var _scale = 1;
 var _heightScale = 1;
 var _imageAngle;
-export(float, 0, 90, 0.5) var cam_pitch_deg = 45 
 var _perspective 
 
 var _alpha = 1;
@@ -53,19 +52,22 @@ var _corner3Dir
 var _corner4Dir
 
 var counter = 0
-	
+
+const SHADER = preload("res://lib/SpriteStacking/shaders/StackedSprite.shader")
+
 func _init():
 	set_process(false)
 	
 func _ready():
-	_perspective = deg2rad(cam_pitch_deg)
+	
+	_perspective = deg2rad(SsGlobals.cam_pitch)
 	
 #	Switch on the lines below in case of using VisualServer instead of draw_polyon:
 #	ci_rid = VisualServer.canvas_item_create()
 	# Make this node the parent.
 #	VisualServer.canvas_item_set_parent(ci_rid, get_canvas_item())
 
-	_imageAngle = deg2rad(rotation - 45)
+	_imageAngle = deg2rad(rotation)
 	
 	set_process(false)
 	
@@ -98,15 +100,27 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	
+	var cam_rot = get_viewport_transform().get_rotation()
 	# In case of testing the rotation_degree:
 #	rotation += 1                                      
 	# In case of testing the camera_pitch:
 #	counter += 0.02                                    
 #	cam_pitch_deg =  ((sin(counter ) + 1) / 2) * 90      
 
-	_perspective = deg2rad(cam_pitch_deg)
-	_imageAngle = deg2rad(rotation)
+#	_corner1Dist = origin.distance_to (Vector2( spriteOriginX + 0, 0 + spriteOriginY));
+#	_corner2Dist = origin.distance_to (Vector2(  spriteOriginX + spriteWidth,  0 + spriteOriginY));
+#	_corner3Dist = origin.distance_to (Vector2( spriteOriginX + spriteWidth,  layer_y_length + spriteOriginY));
+#	_corner4Dist = origin.distance_to (Vector2(  spriteOriginX + 0,  layer_y_length + spriteOriginY));
+#
+#	_corner1Dir = origin.angle_to_point(Vector2(  spriteOriginX + 0, 0 + spriteOriginY))     # angle_to_point returns radians
+#	_corner2Dir = origin.angle_to_point(Vector2(  spriteOriginX + spriteWidth,  0 + spriteOriginY))     # angle_to_point returns radians
+#	_corner3Dir = origin.angle_to_point(Vector2(  spriteOriginX + spriteWidth,  layer_y_length + spriteOriginY))     # angle_to_point returns radians
+#	_corner4Dir = origin.angle_to_point(Vector2(  spriteOriginX + 0,  layer_y_length + spriteOriginY))     # angle_to_point returns radians
+
+	_perspective = deg2rad(SsGlobals.cam_pitch)
+	
+	var camera_rotation = get_viewport_transform().get_rotation()
+	z_index = global_position.rotated(camera_rotation).y
 	
 #	Switch on the line below in case of using VisualServer instead of draw_polyon:
 #	VisualServer.canvas_item_clear(ci_rid);
@@ -114,49 +128,53 @@ func _process(delta):
 
 #	Switch off the _draw() in case of using VisualServer instead of draw_polyon:
 func _draw():
+	var camera_rotation = get_canvas_transform().get_rotation()
+	var camera_position = get_canvas_transform().get_origin()
 
 	_perspectiveTop = sin(_perspective);
 	_perspectiveFront = cos(_perspective);
 
 	#//Get new corner positions using the original 4 corners and angles
-
-	_x1 = (Vector2(1,0).rotated(_corner1Dir  + _imageAngle) * _corner1Dist).x     
-	_y1 = (Vector2(cos( _corner1Dir + _imageAngle),sin( _corner1Dir + _imageAngle)) * _corner1Dist * _perspectiveTop).y 
-	_x2 = (Vector2(1,0).rotated(_corner2Dir   + _imageAngle) * _corner2Dist).x  
-	_y2 = (Vector2(cos(_corner2Dir + _imageAngle),sin(_corner2Dir + _imageAngle)) * _corner2Dist * _perspectiveTop).y  
-	_x3 = (Vector2(1,0).rotated(_corner3Dir  + _imageAngle) * _corner3Dist).x     
-	_y3 = (Vector2(cos( _corner3Dir + _imageAngle),sin( _corner3Dir + _imageAngle)) * _corner3Dist * _perspectiveTop).y  
-	_x4 = (Vector2(1,0).rotated(_corner4Dir  + _imageAngle) * _corner4Dist).x    
-	_y4 = (Vector2(cos(_corner4Dir + _imageAngle),sin(_corner4Dir + _imageAngle)) * _corner4Dist * _perspectiveTop).y   
-
-	var points = PoolVector2Array()
-	points = [Vector2(_x1,_y1), Vector2(_x2,_y2), Vector2(_x3,_y3),Vector2(_x4,_y4)]
-#	var colour = PoolColorArray()
-#	colour = [Color(0,0,1, 1)]
-	var UVs = PoolVector2Array()
+	_imageAngle = camera_rotation + rotation
+	var points = PoolVector2Array([
+		Vector2(
+			(Vector2(1,0).rotated(_corner1Dir  + _imageAngle) * _corner1Dist).x ,
+			(Vector2(cos( _corner1Dir + _imageAngle),sin( _corner1Dir + _imageAngle)) * _corner1Dist * _perspectiveTop).y
+		), Vector2(
+			(Vector2(1,0).rotated(_corner2Dir   + _imageAngle) * _corner2Dist).x,
+			(Vector2(cos(_corner2Dir + _imageAngle), sin(_corner2Dir + _imageAngle)) * _corner2Dist * _perspectiveTop).y
+		), Vector2(
+			(Vector2(1,0).rotated(_corner3Dir  + _imageAngle) * _corner3Dist).x,
+			(Vector2(cos( _corner3Dir + _imageAngle),sin( _corner3Dir + _imageAngle)) * _corner3Dist * _perspectiveTop).y
+		), Vector2(
+			(Vector2(1,0).rotated(_corner4Dir  + _imageAngle) * _corner4Dist).x,
+			(Vector2(cos(_corner4Dir + _imageAngle),sin(_corner4Dir + _imageAngle)) * _corner4Dist * _perspectiveTop).y
+		)
+	])
 	
 	var previous_UV_y
 	var next_UV_y
 	
+	var camera_rotation_inverse = -(camera_rotation + rotation + PI)
+	
+	var aaa = get_canvas_transform().basis_xform(global_position)
+	var resolution_squish = Vector2(0, aaa.y * _perspectiveTop)
+	
+	draw_rect(Rect2(position - Vector2(5, 5), Vector2(10, 10)), Color.red, true)
+	
 	for  _i in range (0,  rows, _layerHeight):
-		points[0].y -= _heightScale * _perspectiveFront 
-		points[1].y -= _heightScale * _perspectiveFront 
-		points[2].y -= _heightScale * _perspectiveFront 
-		points[3].y -= _heightScale * _perspectiveFront 
+		draw_set_transform_matrix(
+			Transform2D.IDENTITY.rotated(camera_rotation_inverse).translated(Vector2(0, _i) + resolution_squish)
+		)
 		
-		previous_UV_y = 1 - (float(_i)  / float(rows))
+		previous_UV_y = 1 - (float(_i) / float(rows))
 		next_UV_y = 1 - (float(_i + 1) / float(rows))
-		UVs = [Vector2(0,  previous_UV_y), Vector2(1, previous_UV_y), Vector2(1, next_UV_y), Vector2(0,next_UV_y)]
+		var UVs = PoolVector2Array([
+			Vector2(0, previous_UV_y), 
+			Vector2(1, previous_UV_y), 
+			Vector2(1, next_UV_y), 
+			Vector2(0, next_UV_y)
+		])
 		
-# 		Switch on the line below in case of using VisualServer instead of draw_polyon:
-#		In case of using VisualServer instead of draw_polyon:
-#		VisualServer.canvas_item_add_polygon (
-#			ci_rid,                                              
-#			points,                                  # UVs
-#			PoolColorArray(),
-#			UVs,                                 
-#			slice_sheet.get_rid()                                
-#		)
-
-#		Switch off the draw_polygon() in case of using VisualServer instead of draw_polyon:
-		draw_polygon ( points, PoolColorArray(),  UVs, slice_sheet )
+		draw_polygon(points, PoolColorArray(), UVs, slice_sheet)
+		

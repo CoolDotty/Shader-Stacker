@@ -21,10 +21,6 @@ run/main_scene="res://Example.tscn"
 
 SsGlobals="*res://lib/SpriteStacking/scenes/SsGlobals.tscn"
 
-[display]
-
-window/stretch/mode="viewport"
-
 [importer_defaults]
 
 texture={
