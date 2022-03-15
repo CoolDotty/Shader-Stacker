@@ -2,32 +2,35 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/teapot.png-e9c218f8c12d0692de9afd71e799727f.stex"
+path.s3tc="res://.import/teapot.png-e9c218f8c12d0692de9afd71e799727f.s3tc.stex"
+path.etc2="res://.import/teapot.png-e9c218f8c12d0692de9afd71e799727f.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://teapot.png"
-dest_files=[ "res://.import/teapot.png-e9c218f8c12d0692de9afd71e799727f.stex" ]
+dest_files=[ "res://.import/teapot.png-e9c218f8c12d0692de9afd71e799727f.s3tc.stex", "res://.import/teapot.png-e9c218f8c12d0692de9afd71e799727f.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=false
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

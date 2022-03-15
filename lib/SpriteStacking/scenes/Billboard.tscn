@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://lib/SpriteStacking/scripts/Billboard.gd" type="Script" id=1]
-
-[node name="Billboard" type="Sprite"]
-script = ExtResource( 1 )

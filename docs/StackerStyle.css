@@ -273,7 +273,22 @@ a[href^="https://"]:after {
 .heart::before {
     content: '<3';
     color: transparent;
-    background-image: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet, red, orange);
+    background-image: linear-gradient(
+        to left,
+        hsl(0deg 100% 50%) 0%,
+        hsl(20deg 100% 50%) 8%,
+        hsl(40deg 100% 50%) 17%,
+        hsl(60deg 100% 50%) 25%,
+        hsl(80deg 100% 50%) 33%,
+        hsl(100deg 100% 50%) 42%,
+        hsl(120deg 100% 50%) 50%,
+        hsl(160deg 100% 50%) 58%,
+        hsl(200deg 100% 50%) 67%,
+        hsl(240deg 100% 50%) 75%,
+        hsl(280deg 100% 50%) 83%,
+        hsl(320deg 100% 50%) 92%,
+        hsl(0deg 100% 50%) 100%
+    );
     background-size: 900% 100%;
     -webkit-background-clip: text;
     background-clip: text;
