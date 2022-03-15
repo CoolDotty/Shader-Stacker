@@ -9,7 +9,7 @@ it just comes down to whether you want to implement feature compete 3d in Godot 
 orthoganol in the Camera3D and call it a day
 
 If you aren't convinced, you're more than welcome to pick up the work where it was left off.
-Fork off fork off f797d0d1b2d98f96b148f06f11e227c6a4b2f64f and try to write a solution for #1 #6 
+Fork off fork off [feat/1/cam-pitch-rework](https://github.com/KarlTheCool/Shader-Stacker/tree/feat/1/cam-pitch-rework) and try to write a 2D solution for #1 #6 
 and #7.
 
 # Documentation
