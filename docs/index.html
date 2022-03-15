@@ -55,8 +55,9 @@
             Sprite stacking is a 2.5D technique done by drawing cross sections of a 3D object at a slight offset for each layer.
         </p>
         <p>
-            Traditionally, this is done by drawing each layer as a seperate sprite. Shader stacker speeds up this process by calculating each pixel on the GPU.
-            The library is written in GLSL for the Godot engine and includes support for viewing models directly in the scene editor.
+            Traditionally, this is done by drawing each layer as a seperate 2D sprite.
+            Shader Stacker speeds up this process by rendering the sprites as square 3D meshes
+            and batches every layer so it can be drawn in parralel on the GPU.
         </p>
         <p>
             Get the code on Github or add the package through the Godot Asset Library.
@@ -67,7 +68,7 @@
         <h3 class="docs--heading">Getting Started</h3>
         <p>
             Download the library either by adding the repository to your Godot project or through the asset manager.
-            If you want to learn through example, open <code class="docs--code--inline">example.tscn</code> and take a look.
+            If you want to learn through example, open <code class="docs--code--inline">Example.tscn</code> and take a look.
         </p>
         <h3 class="docs--heading">Creating a Stacked Sprite Sheet</h3>
         <p>
@@ -76,44 +77,34 @@
         </p>
         <h3 class="docs--heading">Stacked Sprite</h3>
         <p>
-            A template scene exists in the scenes folder of the library. Instantiate one of them in your scene.
+            A template scene exists in the scenes folder of the library.
+            Instantiate a copy of <code class="docs--code--inline">SpriteStack.tscn</code> into your
+            3D scene.
         </p>
         <p>
-            Set your slice sheet via the <code class="docs--code--inline">slice_sheet</code> variable in the inspector. Then set the amount of rows and columns
+            Set your slice sheet via the <code class="docs--code--inline">stack_sheet</code> variable in the inspector. Then set the amount of rows and columns
             your sheet has. For MagicaVoxel exports, you just need to set the <code class="docs--code--inline">row</code> value to be equal to the Z value of your model.
-        </p>
-        <p>
-            Z index is dynamically calculate to maintain perspective. If you wish to set the z value manually, enable the
-            <code class="docs--code--inline">static_z</code> option.
-        </p>
-        <p>
-            <code class="docs--code--inline">center</code> is used to center the sprite around a layer other than the bottom-most one. Handy for making holes.
         </p>
         <p>
             If anything ever looks off in the editor, try closing and re-opening the scene.
         </p>
         <h3 class="docs--heading">Billboards</h3>
         <p>
-            Billboards are sprites that always face the camera. You'll want to make objects billboards if they require more detail than sprite stacking can handle.
-            Things like the player or enemies are common choices for this.
-            It can be handy to convert spherical objects to billboards to improve performance.
+            Billboards are built-in to Godot 3D. Instantiate a Sprite3D node. Open the flags section
+            and set Billboard to enabled.
         </p>
         <p>
-            Billboards have two options in the inspector.
+            You can set a Billboard as a child to a stacked sprite. If the billboard is position
+            at x 0 and z 0, it will always paint on top of the stacked sprite. You can see this
+            effect in the "Tree" node in <code class="docs--code--inline">Example.tscn</code>.
         </p>
+        <h3 class="docs--heading">Camera</h3>
         <p>
-            <code class="docs--code--inline">static_z</code> stops the z index from being calculate dynamically. Handy if the billboard is a child of an object which
-            does dynamically calculate it&apos;s index.
-        </p>
-        <p>
-            <code class="docs--code--inline">parent_bonded</code> treats the billboard as if it is attached to a parent stacked sprite. Maintining its perspective
-            when the camera is rotating. Ex: Leaves child of a tree = bonded. Player child of a level = not bonded.
-        </p>
-        <h3 class="docs--heading">SsGlobals</h3>
-        <p>
-            Make sure this is autoloaded as a singleton in your project. This manages the <code class="docs--code--inline">cam_pitch</code>
-            which you can adjust to make your game more isometric. Currently it uses the
-            <a class="docs--link" href="https://twitter.com/moppin_/status/1229247206164582402">Moppin_ method</a> which is extremely slow.
+            Stacked Sprites work fine with the built-in Camera3D. If you want the effect to be
+            true to traditional, set the projection mode to 
+            <code class="docs--code--inline">Orthaganol</code>. Adjusting the
+            <code class="docs--code--inline">Size</code> value will change the "pixel" size of your
+            stacked sprites.
         </p>
     </div>
     <h2 class="section--title" id="inspirations"><a href="#inspirations" class="section--target"></a>Inspirations</h2>

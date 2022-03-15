@@ -1,787 +1,459 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=49 format=2]
 
-[ext_resource path="res://lib/SpriteStacking/shaders/StackedSprite.shader" type="Shader" id=1]
-[ext_resource path="res://lib/SpriteStacking/scenes/StackedSprite.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ExampleCam.gd" type="Script" id=3]
-[ext_resource path="res://trunk.png" type="Texture" id=4]
-[ext_resource path="res://grass.png" type="Texture" id=5]
-[ext_resource path="res://arch.png" type="Texture" id=6]
-[ext_resource path="res://teapot.png" type="Texture" id=7]
-[ext_resource path="res://pink_tree.png" type="Texture" id=8]
-[ext_resource path="res://leaves.png" type="Texture" id=9]
-[ext_resource path="res://lib/SpriteStacking/shaders/Billboard.shader" type="Shader" id=10]
-[ext_resource path="res://lib/SpriteStacking/scenes/Billboard.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SpriteStack.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CameraPivot.gd" type="Script" id=2]
+[ext_resource path="res://SpriteStack.gdshader" type="Shader" id=3]
+[ext_resource path="res://teapot.png" type="Texture" id=4]
+[ext_resource path="res://arch.png" type="Texture" id=5]
+[ext_resource path="res://leaves.png" type="Texture" id=6]
+[ext_resource path="res://trunk.png" type="Texture" id=7]
+[ext_resource path="res://grass.png" type="Texture" id=8]
+[ext_resource path="res://pink_tree.png" type="Texture" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 6 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 43
-shader_param/layer_count = 43
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 8 )
+[sub_resource type="ArrayMesh" id=2]
+surfaces/0 = {
+"aabb": AABB( -3.2, 0, -2.05, 6.4, 1e-05, 4.10001 ),
+"array_data": PoolByteArray( 205, 204, 76, 192, 0, 0, 0, 0, 51, 51, 3, 64, 255, 255, 255, 0, 0, 0, 0, 0, 205, 204, 76, 192, 0, 0, 0, 0, 51, 51, 3, 192, 255, 255, 255, 0, 0, 0, 0, 60, 205, 204, 76, 64, 0, 0, 0, 0, 51, 51, 3, 192, 255, 255, 255, 0, 0, 60, 0, 60, 205, 204, 76, 64, 0, 0, 0, 0, 51, 51, 3, 64, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=67]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 43
-shader_param/layer_count = 43
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 8 )
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 61
-shader_param/layer_count = 61
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 7 )
+[sub_resource type="MultiMesh" id=3]
+color_format = 2
+transform_format = 1
+instance_count = 61
+mesh = SubResource( 2 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+color_array = PoolColorArray( 1, 0.0163934, 60, 1, 1, 0.0163934, 59, 1, 1, 0.0163934, 58, 1, 1, 0.0163934, 57, 1, 1, 0.0163934, 56, 1, 1, 0.0163934, 55, 1, 1, 0.0163934, 54, 1, 1, 0.0163934, 53, 1, 1, 0.0163934, 52, 1, 1, 0.0163934, 51, 1, 1, 0.0163934, 50, 1, 1, 0.0163934, 49, 1, 1, 0.0163934, 48, 1, 1, 0.0163934, 47, 1, 1, 0.0163934, 46, 1, 1, 0.0163934, 45, 1, 1, 0.0163934, 44, 1, 1, 0.0163934, 43, 1, 1, 0.0163934, 42, 1, 1, 0.0163934, 41, 1, 1, 0.0163934, 40, 1, 1, 0.0163934, 39, 1, 1, 0.0163934, 38, 1, 1, 0.0163934, 37, 1, 1, 0.0163934, 36, 1, 1, 0.0163934, 35, 1, 1, 0.0163934, 34, 1, 1, 0.0163934, 33, 1, 1, 0.0163934, 32, 1, 1, 0.0163934, 31, 1, 1, 0.0163934, 30, 1, 1, 0.0163934, 29, 1, 1, 0.0163934, 28, 1, 1, 0.0163934, 27, 1, 1, 0.0163934, 26, 1, 1, 0.0163934, 25, 1, 1, 0.0163934, 24, 1, 1, 0.0163934, 23, 1, 1, 0.0163934, 22, 1, 1, 0.0163934, 21, 1, 1, 0.0163934, 20, 1, 1, 0.0163934, 19, 1, 1, 0.0163934, 18, 1, 1, 0.0163934, 17, 1, 1, 0.0163934, 16, 1, 1, 0.0163934, 15, 1, 1, 0.0163934, 14, 1, 1, 0.0163934, 13, 1, 1, 0.0163934, 12, 1, 1, 0.0163934, 11, 1, 1, 0.0163934, 10, 1, 1, 0.0163934, 9, 1, 1, 0.0163934, 8, 1, 1, 0.0163934, 7, 1, 1, 0.0163934, 6, 1, 1, 0.0163934, 5, 1, 1, 0.0163934, 4, 1, 1, 0.0163934, 3, 1, 1, 0.0163934, 2, 1, 1, 0.0163934, 1, 1, 1, 0.0163934, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=4]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 5 )
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=5]
+surfaces/0 = {
+"aabb": AABB( -1.5, 0, -0.5, 3, 1e-05, 1.00001 ),
+"array_data": PoolByteArray( 0, 0, 192, 191, 0, 0, 0, 0, 0, 0, 0, 63, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 192, 191, 0, 0, 0, 0, 0, 0, 0, 191, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 192, 63, 0, 0, 0, 0, 0, 0, 0, 191, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 192, 63, 0, 0, 0, 0, 0, 0, 0, 63, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=6]
+color_format = 2
+transform_format = 1
+instance_count = 50
+mesh = SubResource( 5 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, 0 )
+color_array = PoolColorArray( 1, 0.02, 49, 1, 1, 0.02, 48, 1, 1, 0.02, 47, 1, 1, 0.02, 46, 1, 1, 0.02, 45, 1, 1, 0.02, 44, 1, 1, 0.02, 43, 1, 1, 0.02, 42, 1, 1, 0.02, 41, 1, 1, 0.02, 40, 1, 1, 0.02, 39, 1, 1, 0.02, 38, 1, 1, 0.02, 37, 1, 1, 0.02, 36, 1, 1, 0.02, 35, 1, 1, 0.02, 34, 1, 1, 0.02, 33, 1, 1, 0.02, 32, 1, 1, 0.02, 31, 1, 1, 0.02, 30, 1, 1, 0.02, 29, 1, 1, 0.02, 28, 1, 1, 0.02, 27, 1, 1, 0.02, 26, 1, 1, 0.02, 25, 1, 1, 0.02, 24, 1, 1, 0.02, 23, 1, 1, 0.02, 22, 1, 1, 0.02, 21, 1, 1, 0.02, 20, 1, 1, 0.02, 19, 1, 1, 0.02, 18, 1, 1, 0.02, 17, 1, 1, 0.02, 16, 1, 1, 0.02, 15, 1, 1, 0.02, 14, 1, 1, 0.02, 13, 1, 1, 0.02, 12, 1, 1, 0.02, 11, 1, 1, 0.02, 10, 1, 1, 0.02, 9, 1, 1, 0.02, 8, 1, 1, 0.02, 7, 1, 1, 0.02, 6, 1, 1, 0.02, 5, 1, 1, 0.02, 4, 1, 1, 0.02, 3, 1, 1, 0.02, 2, 1, 1, 0.02, 1, 1, 1, 0.02, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 7 )
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=8]
+surfaces/0 = {
+"aabb": AABB( -0.2, 0, -0.2, 0.4, 1e-05, 0.40001 ),
+"array_data": PoolByteArray( 205, 204, 76, 190, 0, 0, 0, 0, 205, 204, 76, 62, 255, 255, 255, 0, 0, 0, 0, 0, 205, 204, 76, 190, 0, 0, 0, 0, 205, 204, 76, 190, 255, 255, 255, 0, 0, 0, 0, 60, 205, 204, 76, 62, 0, 0, 0, 0, 205, 204, 76, 190, 255, 255, 255, 0, 0, 60, 0, 60, 205, 204, 76, 62, 0, 0, 0, 0, 205, 204, 76, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=9]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=9]
+color_format = 2
+transform_format = 1
+instance_count = 50
+mesh = SubResource( 8 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, 0 )
+color_array = PoolColorArray( 1, 0.02, 49, 1, 1, 0.02, 48, 1, 1, 0.02, 47, 1, 1, 0.02, 46, 1, 1, 0.02, 45, 1, 1, 0.02, 44, 1, 1, 0.02, 43, 1, 1, 0.02, 42, 1, 1, 0.02, 41, 1, 1, 0.02, 40, 1, 1, 0.02, 39, 1, 1, 0.02, 38, 1, 1, 0.02, 37, 1, 1, 0.02, 36, 1, 1, 0.02, 35, 1, 1, 0.02, 34, 1, 1, 0.02, 33, 1, 1, 0.02, 32, 1, 1, 0.02, 31, 1, 1, 0.02, 30, 1, 1, 0.02, 29, 1, 1, 0.02, 28, 1, 1, 0.02, 27, 1, 1, 0.02, 26, 1, 1, 0.02, 25, 1, 1, 0.02, 24, 1, 1, 0.02, 23, 1, 1, 0.02, 22, 1, 1, 0.02, 21, 1, 1, 0.02, 20, 1, 1, 0.02, 19, 1, 1, 0.02, 18, 1, 1, 0.02, 17, 1, 1, 0.02, 16, 1, 1, 0.02, 15, 1, 1, 0.02, 14, 1, 1, 0.02, 13, 1, 1, 0.02, 12, 1, 1, 0.02, 11, 1, 1, 0.02, 10, 1, 1, 0.02, 9, 1, 1, 0.02, 8, 1, 1, 0.02, 7, 1, 1, 0.02, 6, 1, 1, 0.02, 5, 1, 1, 0.02, 4, 1, 1, 0.02, 3, 1, 1, 0.02, 2, 1, 1, 0.02, 1, 1, 1, 0.02, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=10]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 9 )
 
-[sub_resource type="ShaderMaterial" id=11]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=11]
+surfaces/0 = {
+"aabb": AABB( -0.925, 0, -0.9, 1.85, 1e-05, 1.80001 ),
+"array_data": PoolByteArray( 205, 204, 108, 191, 0, 0, 0, 0, 102, 102, 102, 63, 255, 255, 255, 0, 0, 0, 0, 0, 205, 204, 108, 191, 0, 0, 0, 0, 102, 102, 102, 191, 255, 255, 255, 0, 0, 0, 0, 60, 205, 204, 108, 63, 0, 0, 0, 0, 102, 102, 102, 191, 255, 255, 255, 0, 0, 60, 0, 60, 205, 204, 108, 63, 0, 0, 0, 0, 102, 102, 102, 63, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=12]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=13]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=14]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
-
-[sub_resource type="ShaderMaterial" id=15]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=12]
+color_format = 2
+transform_format = 1
+instance_count = 43
+mesh = SubResource( 11 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0 )
+color_array = PoolColorArray( 1, 0.0232558, 42, 1, 1, 0.0232558, 41, 1, 1, 0.0232558, 40, 1, 1, 0.0232558, 39, 1, 1, 0.0232558, 38, 1, 1, 0.0232558, 37, 1, 1, 0.0232558, 36, 1, 1, 0.0232558, 35, 1, 1, 0.0232558, 34, 1, 1, 0.0232558, 33, 1, 1, 0.0232558, 32, 1, 1, 0.0232558, 31, 1, 1, 0.0232558, 30, 1, 1, 0.0232558, 29, 1, 1, 0.0232558, 28, 1, 1, 0.0232558, 27, 1, 1, 0.0232558, 26, 1, 1, 0.0232558, 25, 1, 1, 0.0232558, 24, 1, 1, 0.0232558, 23, 1, 1, 0.0232558, 22, 1, 1, 0.0232558, 21, 1, 1, 0.0232558, 20, 1, 1, 0.0232558, 19, 1, 1, 0.0232558, 18, 1, 1, 0.0232558, 17, 1, 1, 0.0232558, 16, 1, 1, 0.0232558, 15, 1, 1, 0.0232558, 14, 1, 1, 0.0232558, 13, 1, 1, 0.0232558, 12, 1, 1, 0.0232558, 11, 1, 1, 0.0232558, 10, 1, 1, 0.0232558, 9, 1, 1, 0.0232558, 8, 1, 1, 0.0232558, 7, 1, 1, 0.0232558, 6, 1, 1, 0.0232558, 5, 1, 1, 0.0232558, 4, 1, 1, 0.0232558, 3, 1, 1, 0.0232558, 2, 1, 1, 0.0232558, 1, 1, 1, 0.0232558, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=16]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=17]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=17]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=18]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=18]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 17 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=13]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
+
+[sub_resource type="ArrayMesh" id=14]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="MultiMesh" id=15]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 14 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=19]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=20]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=20]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=21]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=21]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 20 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=22]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=23]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=23]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=24]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=24]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 23 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=25]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=26]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=26]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=27]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=27]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 26 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=28]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=29]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=29]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=30]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=30]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 29 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=31]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=32]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=32]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=33]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=33]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 32 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=34]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=35]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=35]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=36]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=36]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 35 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=37]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/stack_sheet = ExtResource( 8 )
 
-[sub_resource type="ShaderMaterial" id=38]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="ArrayMesh" id=38]
+surfaces/0 = {
+"aabb": AABB( -0.25, 0, -0.25, 0.5, 1e-05, 0.50001 ),
+"array_data": PoolByteArray( 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 0, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 190, 255, 255, 255, 0, 0, 60, 0, 60, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 255, 255, 255, 0, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194713,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
 
-[sub_resource type="ShaderMaterial" id=39]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[sub_resource type="MultiMesh" id=39]
+color_format = 2
+transform_format = 1
+instance_count = 10
+mesh = SubResource( 38 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+color_array = PoolColorArray( 1, 0.1, 9, 1, 1, 0.1, 8, 1, 1, 0.1, 7, 1, 1, 0.1, 6, 1, 1, 0.1, 5, 1, 1, 0.1, 4, 1, 1, 0.1, 3, 1, 1, 0.1, 2, 1, 1, 0.1, 1, 1, 1, 0.1, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=40]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[node name="Spatial" type="Spatial"]
 
-[sub_resource type="ShaderMaterial" id=41]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 10
-shader_param/layer_count = 10
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 5 )
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script = ExtResource( 2 )
 
-[sub_resource type="ShaderMaterial" id=61]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=62]
-shader = ExtResource( 10 )
-shader_param/stretch = 1
-
-[sub_resource type="ShaderMaterial" id=63]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=64]
-shader = ExtResource( 10 )
-shader_param/stretch = 1
-
-[sub_resource type="ShaderMaterial" id=65]
-shader = ExtResource( 1 )
-shader_param/columns = 1
-shader_param/rows = 50
-shader_param/layer_count = 50
-shader_param/stretch = 1
-shader_param/center = 0
-shader_param/slice_sheet = ExtResource( 4 )
-
-[sub_resource type="ShaderMaterial" id=66]
-shader = ExtResource( 10 )
-shader_param/stretch = 1
-
-[node name="Example" type="Node2D"]
-position = Vector2( -1.68369, 11.5052 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -2.80615, -33.8775 )
-rotating = true
+[node name="Camera" type="Camera" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 9.79849, 17.7597 )
+projection = 1
 current = true
-zoom = Vector2( 0.35, 0.35 )
-script = ExtResource( 3 )
+size = 10.0
 
-[node name="Arch" parent="." instance=ExtResource( 2 )]
-material = SubResource( 1 )
-position = Vector2( 2.58116, 95.2666 )
-z_index = 106
-slice_sheet = ExtResource( 6 )
-rows = 50
-
-[node name="PinkTree" parent="." instance=ExtResource( 2 )]
-material = SubResource( 2 )
-position = Vector2( -117.811, -38.6448 )
-rotation = 2.15723
-z_index = -27
-slice_sheet = ExtResource( 8 )
-rows = 43
-
-[node name="PinkTree2" parent="." instance=ExtResource( 2 )]
-material = SubResource( 67 )
-position = Vector2( -85.2928, -59.5809 )
-z_index = -48
-slice_sheet = ExtResource( 8 )
-rows = 43
-
-[node name="Teapot" parent="." instance=ExtResource( 2 )]
-material = SubResource( 3 )
-z_index = 11
-slice_sheet = ExtResource( 7 )
+[node name="Teapot" parent="." instance=ExtResource( 1 )]
+material_override = SubResource( 1 )
+multimesh = SubResource( 3 )
+stack_sheet = ExtResource( 4 )
 rows = 61
 
-[node name="GrassPatch" type="Node2D" parent="."]
-position = Vector2( 137.284, -46.732 )
-
-[node name="Grass" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 4 )
-position = Vector2( 12.6376, 7.47222 )
-z_index = -27
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass2" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 5 )
-position = Vector2( 0.839203, 7.94416 )
-z_index = -27
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass3" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 6 )
-position = Vector2( 5.08664, 0.157192 )
-z_index = -35
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass4" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 7 )
-position = Vector2( -4.35211, -0.314747 )
-z_index = -35
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass5" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 8 )
-position = Vector2( 15.9412, -1.73055 )
-z_index = -36
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass6" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 9 )
-position = Vector2( 6.03053, -8.8096 )
-z_index = -44
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass7" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 10 )
-position = Vector2( -8.59952, -12.3491 )
-z_index = -47
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass8" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 11 )
-position = Vector2( -3.17224, -4.79814 )
-z_index = -40
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass9" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 12 )
-position = Vector2( -12.611, 0.629139 )
-z_index = -34
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass10" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 13 )
-position = Vector2( -10.0153, 10.7758 )
-z_index = -24
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass11" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 14 )
-position = Vector2( -3.17224, 19.2707 )
-z_index = -15
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass12" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 15 )
-position = Vector2( 13.1096, 16.675 )
-z_index = -18
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass13" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 16 )
-position = Vector2( 6.97442, 18.3268 )
-z_index = -16
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass14" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 17 )
-position = Vector2( 21.6045, 8.18014 )
-z_index = -27
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass15" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 18 )
-position = Vector2( 15.2333, -8.33767 )
-z_index = -43
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass16" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 19 )
-position = Vector2( -0.104645, -17.7764 )
-z_index = -53
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass17" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 20 )
-position = Vector2( -19.69, -6.68589 )
-z_index = -41
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass18" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 21 )
-position = Vector2( -21.5778, 10.5398 )
-z_index = -24
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass19" parent="GrassPatch" instance=ExtResource( 2 )]
-material = SubResource( 22 )
-position = Vector2( -14.2627, 23.5181 )
-z_index = -11
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="GrassPatch2" type="Node2D" parent="."]
-position = Vector2( 111.287, -73.4679 )
-
-[node name="Grass" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 23 )
-position = Vector2( 12.6376, 7.47222 )
-z_index = -54
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass2" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 24 )
-position = Vector2( 0.839203, 7.94416 )
-z_index = -54
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass3" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 25 )
-position = Vector2( 5.08664, 0.157192 )
-z_index = -61
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass4" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 26 )
-position = Vector2( -4.35211, -0.314747 )
-z_index = -62
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass5" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 27 )
-position = Vector2( 15.9412, -1.73055 )
-z_index = -63
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass6" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 28 )
-position = Vector2( 6.03053, -8.8096 )
-z_index = -70
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass7" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 29 )
-position = Vector2( -8.59952, -12.3491 )
-z_index = -74
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass8" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 30 )
-position = Vector2( -3.17224, -4.79814 )
-z_index = -66
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass9" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 31 )
-position = Vector2( -12.611, 0.629139 )
-z_index = -61
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass10" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 32 )
-position = Vector2( -10.0153, 10.7758 )
-z_index = -51
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass11" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 33 )
-position = Vector2( -3.17224, 19.2707 )
-z_index = -42
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass12" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 34 )
-position = Vector2( 13.1096, 16.675 )
-z_index = -45
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass13" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 35 )
-position = Vector2( 6.97442, 18.3268 )
-z_index = -43
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass14" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 36 )
-position = Vector2( 21.6045, 8.18014 )
-z_index = -53
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass15" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 37 )
-position = Vector2( 15.2333, -8.33767 )
-z_index = -70
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass16" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 38 )
-position = Vector2( -0.104645, -17.7764 )
-z_index = -79
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass17" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 39 )
-position = Vector2( -19.69, -6.68589 )
-z_index = -68
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass18" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 40 )
-position = Vector2( -21.5778, 10.5398 )
-z_index = -51
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Grass19" parent="GrassPatch2" instance=ExtResource( 2 )]
-material = SubResource( 41 )
-position = Vector2( -14.2627, 23.5181 )
-z_index = -38
-slice_sheet = ExtResource( 5 )
-rows = 10
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="BirchTree" parent="Node2D" instance=ExtResource( 2 )]
-material = SubResource( 61 )
-position = Vector2( 134.44, -52.1898 )
-z_index = -40
-slice_sheet = ExtResource( 4 )
+[node name="Arch" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00820827, -0.0253468, 8.02812 )
+material_override = SubResource( 4 )
+multimesh = SubResource( 6 )
+stack_sheet = ExtResource( 5 )
 rows = 50
 
-[node name="Leaves" parent="Node2D/BirchTree" instance=ExtResource( 11 )]
-material = SubResource( 62 )
-position = Vector2( 0, -50.398 )
-z_index = 1
-texture = ExtResource( 9 )
-static_z = true
-parent_bonded = true
-
-[node name="BirchTree2" parent="Node2D" instance=ExtResource( 2 )]
-material = SubResource( 63 )
-position = Vector2( 97.0227, -65.9987 )
-z_index = -54
-slice_sheet = ExtResource( 4 )
+[node name="Tree" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1525, 0, 0 )
+material_override = SubResource( 7 )
+multimesh = SubResource( 9 )
+stack_sheet = ExtResource( 7 )
 rows = 50
 
-[node name="Leaves" parent="Node2D/BirchTree2" instance=ExtResource( 11 )]
-material = SubResource( 64 )
-position = Vector2( 0, -50.398 )
-z_index = 1
-texture = ExtResource( 9 )
-static_z = true
-parent_bonded = true
+[node name="Leaves" type="Sprite3D" parent="Tree"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5455, 0 )
+pixel_size = 0.05
+billboard = 1
+texture = ExtResource( 6 )
 
-[node name="BirchTree3" parent="Node2D" instance=ExtResource( 2 )]
-material = SubResource( 65 )
-position = Vector2( 133.995, -73.1259 )
-z_index = -61
-slice_sheet = ExtResource( 4 )
-rows = 50
+[node name="PinkTree" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.91692 )
+material_override = SubResource( 10 )
+multimesh = SubResource( 12 )
+stack_sheet = ExtResource( 9 )
+rows = 43
 
-[node name="Leaves" parent="Node2D/BirchTree3" instance=ExtResource( 11 )]
-material = SubResource( 66 )
-position = Vector2( 0, -50.398 )
-z_index = 1
-texture = ExtResource( 9 )
-static_z = true
-parent_bonded = true
+[node name="Patch" type="Spatial" parent="."]
+
+[node name="Grass3" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97273, 0, 0 )
+material_override = SubResource( 16 )
+multimesh = SubResource( 18 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04498, 0, 0 )
+material_override = SubResource( 13 )
+multimesh = SubResource( 15 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass2" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04498, 0, -0.927546 )
+material_override = SubResource( 19 )
+multimesh = SubResource( 21 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass4" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04498, 0, 0.676244 )
+material_override = SubResource( 22 )
+multimesh = SubResource( 24 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass5" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41348, 0, 0.537273 )
+material_override = SubResource( 25 )
+multimesh = SubResource( 27 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass6" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.47412, 0, -0.568494 )
+material_override = SubResource( 28 )
+multimesh = SubResource( 30 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass7" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57157, 0, -0.697396 )
+material_override = SubResource( 31 )
+multimesh = SubResource( 33 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass8" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52541, 0, 0 )
+material_override = SubResource( 34 )
+multimesh = SubResource( 36 )
+stack_sheet = ExtResource( 8 )
+rows = 10
+
+[node name="Grass9" parent="Patch" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.77282, 0.0211887, 0.591913 )
+material_override = SubResource( 37 )
+multimesh = SubResource( 39 )
+stack_sheet = ExtResource( 8 )
+rows = 10
