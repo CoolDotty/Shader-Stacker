@@ -2,18 +2,21 @@
 The GPU accelerated version of Sprite Stacking. ~~A top-down 2.5D trick for the Godot Engine.~~
 Now in full 3D!
 
+![Shader Stacker in Godot 3D](https://user-images.githubusercontent.com/10494276/158462796-e0bd0eb0-0278-4c2c-9a93-1f74a861352f.png)
+
 # FAQ
 ## Documentation
 Is found [on the github pages for this repo](https://ka.rlphilli.ps/Shader-Stacker/).
 
 ## Your License Scares Me!
-Don't worry. It should be clear by reading it but just in case it's unclear for any reason:
+Don't worry. If its unclear:
 
 * If you improve the code in any way, please open-source it and make a pull request.
+  * Even if it doesn't fit in with the global project, I'd love to see what people are making!
 * If you make a game with this, license it however you please. Just include a copy of the MPL.
    * Ex: Chuck a copy of the license with the name "Shader-Stacker" in a "Licenses" folder.
-* You can do whatever you want with the sample assets.
-* A link back to the repo as attribution would be nice but not strictly neccesary.
+* You can do whatever you want with the sample assets. Consider them CC0 I guess.
+* Some form of credit acknowledging this project would be nice, but is not strictly neccesary.
 
 ## Why 3D? Why not make it *real* 2.5D in 2D
 To me, there's 2 compelling things about sprite stacking.
@@ -44,8 +47,6 @@ The thing in common with all the above problems, is there are no tricks. The onl
 
 That being said, there's still some work to be done to hone in the effect, but it's not like any data has been lost or rasterized. It will be tuned up as the project progresses.
 
-![Shader stack in Godot 3D looks nearly identical once rendered in game](https://user-images.githubusercontent.com/10494276/158462796-e0bd0eb0-0278-4c2c-9a93-1f74a861352f.png)
-
-If you aren't convinced, you're more than welcome to pick up the work where it was left off.
-Fork off fork off [feat/1/cam-pitch-rework](https://github.com/KarlTheCool/Shader-Stacker/tree/feat/1/cam-pitch-rework) and try to write a 2D solution for #1 #6 
+If you aren't convinced, you're more than welcome to pick up where 2D development left off.
+Fork off [feat/1/cam-pitch-rework](https://github.com/KarlTheCool/Shader-Stacker/tree/feat/1/cam-pitch-rework) and write a 2D solution for #1 #6 
 and #7.
