@@ -34,6 +34,7 @@ Now with the new code, the values in the inspector all make sense and no unneces
 
  #6 
 Fixing unexpected z sorting due to only the center point being considered. Gif is of the bug. Due to Real 3D™ magic, this is fixed in the new implementation
+
 ![z-fighting in tradition sprite stacking center base sorting](https://user-images.githubusercontent.com/10494276/158458310-da608f57-d918-488e-b8cb-b848fcd3ccff.gif)
 
 #7
