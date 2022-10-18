@@ -6,13 +6,36 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
+
+_global_script_classes=[{
+"base": "EditorPlugin",
+"class": &"ShaderStacker",
+"language": &"GDScript",
+"path": "res://addons/ShaderStacker/init.gd"
+}]
+_global_script_class_icons={
+"ShaderStacker": ""
+}
 
 [application]
 
-config/name="StackTest"
-run/main_scene="res://Example.tscn"
+config/name="ShaderStacker"
+config/description="GPU Accelerated Sprite Stacking graphics."
+run/main_scene="res://demo/Demo.tscn"
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/stretch/scale=2.0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ShaderStacker/plugin.cfg")
 
 [importer_defaults]
 
@@ -44,4 +67,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/default_environment="res://default_env.tres"
