@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ShaderStacker"
-config/description="GPU Accelerated Sprite Stacking graphics."
+config/description="GPU accelerated sprite stacking graphics."
 run/main_scene="res://demo/Demo.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"

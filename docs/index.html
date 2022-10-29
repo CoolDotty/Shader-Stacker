@@ -1,135 +1,352 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <html>
+
 <head>
-	<!-- COMMON TAGS -->
-    <meta charset="utf-8">
-    <title>Shader Stacker</title>
-    <!-- Search Engine -->
-    <meta name="description" content="GPU Accelerated 2.5D Library for the Godot Engine">
-    <meta name="image" content="https://raw.githubusercontent.com/KarlTheCool/Shader-Stacker/master/docs/opengraph.png">
-    <!-- Schema.org for Google -->
-    <meta itemprop="name" content="Shader Stacker">
-    <meta itemprop="description" content="GPU Accelerated 2.5D Library for the Godot Engine">
-    <meta itemprop="image" content="https://raw.githubusercontent.com/KarlTheCool/Shader-Stacker/master/docs/opengraph.png">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Shader Stacker">
-    <meta name="twitter:description" content="GPU Accelerated 2.5D Library for the Godot Engine">
-    <meta name="twitter:site" content="@KarlTheCool">
-    <meta name="twitter:creator" content="@KarlTheCool">
-    <meta name="twitter:image:src" content="https://raw.githubusercontent.com/KarlTheCool/Shader-Stacker/master/docs/opengraph.png">
-    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-    <meta name="og:title" content="Shader Stacker">
-    <meta name="og:description" content="GPU Accelerated 2.5D Library for the Godot Engine">
-    <meta name="og:image" content="https://raw.githubusercontent.com/KarlTheCool/Shader-Stacker/master/docs/opengraph.png">
-    <meta name="og:url" content="https://ka.rlphilli.ps/Shader-Stacker/">
-    <meta name="og:site_name" content="Shader Stacker">
-    <meta name="og:locale" content="en_CA">
-    <meta name="og:type" content="website">
-	<!-- Mobile Size Suggestion -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" href="StackerStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" crossorigin="anonymous" />
+  <!-- COMMON TAGS -->
+  <meta charset="utf-8">
+  <title>Shader Stacker</title>
+  <!-- Search Engine -->
+  <meta name="description" content="GPU accelerated 2.5D plugin for the Godot Engine">
+  <meta name="image" content="https://ka.rlphilli.ps/Shader-Stacker/opengraph.png">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Shader Stacker">
+  <meta itemprop="description" content="GPU accelerated 2.5D plugin for the Godot Engine">
+  <meta itemprop="image" content="https://ka.rlphilli.ps/Shader-Stacker/opengraph.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Shader Stacker">
+  <meta name="twitter:description" content="GPU accelerated 2.5D plugin for the Godot Engine">
+  <meta name="twitter:site" content="@KarlTheCool">
+  <meta name="twitter:creator" content="@KarlTheCool">
+  <meta name="twitter:image:src" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Shader Stacker">
+  <meta name="og:description" content="GPU accelerated 2.5D plugin for the Godot Engine">
+  <meta name="og:image" content="https://ka.rlphilli.ps/Shader-Stacker/opengraph.png">
+  <meta name="og:url" content="https://ka.rlphilli.ps/Shader-Stacker/">
+  <meta name="og:site_name" content="Shader Stacker">
+  <meta name="og:locale" content="en_CA">
+  <meta name="og:type" content="website">
+  <!-- Mobile Size Suggestion -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="logo.css">
+  <link rel="stylesheet" href="teapot.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<main class="content">
-    <header class="header">
-        <div class="header--picture"></div>
-        <div class="header--titles">
-            <h1 class="header--shader">Shader</h1>
-            <h1 class="header--stacker">Stacker</h1>
-        </div>
-    </header>
-    <nav class="nav">
-        <a class="nav--element" href="https://github.com/KarlTheCool/Shader-Stacker">Github</a>
-        <a class="nav--element" href="https://godotengine.org/asset-library/asset/763">Asset Library</a>
-        <a class="nav--element" href="#about">About</a>
-        <a class="nav--element" href="#docs">Docs</a>
-        <a class="nav--element" href="#inspirations">Inspirations</a>
-    </nav>
-    <h2 class="section--title" id="about"><a href="#about" class="section--target"></a>About</h2>
-    <div class="section">
-        <p>
-            Sprite stacking is a 2.5D technique done by drawing cross sections of a 3D object at a slight offset for each layer.
-        </p>
-        <p>
-            Traditionally, this is done by drawing each layer as a seperate 2D sprite.
-            Shader Stacker speeds up this process by rendering the sprites as square 3D meshes
-            and batches every layer so it can be drawn in parralel on the GPU.
-        </p>
-        <p>
-            Get the code on Github or add the package through the Godot Asset Library.
-        </p>
-    </div>
-    <h2 class="section--title" id="docs"><a href="#docs" class="section--target"></a>Documentation</h2>
-    <div class="section">
-        <h3 class="docs--heading">Getting Started</h3>
-        <p>
-            Download the library either by adding the repository to your Godot project or through the asset manager.
-            If you want to learn through example, open <code class="docs--code--inline">Example.tscn</code> and take a look.
-        </p>
-        <h3 class="docs--heading">Creating a Stacked Sprite Sheet</h3>
-        <p>
-            <a href="https://ephtracy.github.io/" class="docs--link">MagicaVoxel</a> is free and supports exporting to one with the slice option.
-            Other software exists and you also have the option of making one from scratch.
-        </p>
-        <h3 class="docs--heading">Stacked Sprite</h3>
-        <p>
-            A template scene exists in the scenes folder of the library.
-            Instantiate a copy of <code class="docs--code--inline">SpriteStack.tscn</code> into your
-            3D scene.
-        </p>
-        <p>
-            Set your slice sheet via the <code class="docs--code--inline">stack_sheet</code> variable in the inspector. Then set the amount of rows and columns
-            your sheet has. For MagicaVoxel exports, you just need to set the <code class="docs--code--inline">row</code> value to be equal to the Z value of your model.
-        </p>
-        <p>
-            If anything ever looks off in the editor, try closing and re-opening the scene.
-        </p>
-        <h3 class="docs--heading">Billboards</h3>
-        <p>
-            Billboards are built-in to Godot 3D. Instantiate a Sprite3D node. Open the flags section
-            and set Billboard to enabled.
-        </p>
-        <p>
-            You can set a Billboard as a child to a stacked sprite. If the billboard is position
-            at x 0 and z 0, it will always paint on top of the stacked sprite. You can see this
-            effect in the "Tree" node in <code class="docs--code--inline">Example.tscn</code>.
-        </p>
-        <h3 class="docs--heading">Camera</h3>
-        <p>
-            Stacked Sprites work fine with the built-in Camera3D. If you want the effect to be
-            true to traditional, set the projection mode to 
-            <code class="docs--code--inline">Orthaganol</code>. Adjusting the
-            <code class="docs--code--inline">Size</code> value will change the "pixel" size of your
-            stacked sprites.
-        </p>
-    </div>
-    <h2 class="section--title" id="inspirations"><a href="#inspirations" class="section--target"></a>Inspirations</h2>
-    <div class="section">
-        <p>
-            These projects do <strong>not</strong> use the Shader Stacker library, but played a big part in inspiring me to make it. They're great examples of how cool the effect can be.
-        </p>
-        <div class="videos">
-            <div class="videos--aspect">
-                <iframe src="https://www.youtube-nocookie.com/embed/_BztMPC5Kk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="videos--aspect">
-                <iframe src="https://www.youtube-nocookie.com/embed/MvVlDH090rs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="videos--aspect">
-                <iframe src="https://www.youtube-nocookie.com/embed/r6sBSlhLNXs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="videos--aspect">
-                <iframe src="https://www.youtube-nocookie.com/embed/VaKDt1tGtQI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</main>
-<footer class="footer">
-    Library created by <a class="footer--link" href="https://ka.rlphilli.ps">Karl</a> and developed with <span class="heart"></span> by all its maintainers
-</footer>
+  <header>
+    <h1 id="logo">
+      <div class="shader">
+        <b>S</b>
+        <b>H</b>
+        <b>A</b>
+        <b>D</b>
+        <b>E</b>
+        <b>R</b>
+      </div>
+      <div class="stacker">
+        <b>S</b>
+        <b>T</b>
+        <b>A</b>
+        <b>C</b>
+        <b>K</b>
+        <b>E</b>
+        <b>R</b>
+      </div>
+    </h1>
+    <i>
+      GPU accelerated sprite stacking graphics for the <a href="https://godotengine.org/">Godot Engine</a>
+    </i>
+  </header>
+  <nav>
+    <a href="https://github.com/KarlTheCool/Shader-Stacker">
+      <img style="filter:invert(1)" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OTYgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIyIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMTY1LjkgMzk3LjRjMCAyLTIuMyAzLjYtNS4yIDMuNi0zLjMuMy01LjYtMS4zLTUuNi0zLjYgMC0yIDIuMy0zLjYgNS4yLTMuNiAzLS4zIDUuNiAxLjMgNS42IDMuNnptLTMxLjEtNC41Yy0uNyAyIDEuMyA0LjMgNC4zIDQuOSAyLjYgMSA1LjYgMCA2LjItMnMtMS4zLTQuMy00LjMtNS4yYy0yLjYtLjctNS41LjMtNi4yIDIuM3ptNDQuMi0xLjdjLTIuOS43LTQuOSAyLjYtNC42IDQuOS4zIDIgMi45IDMuMyA1LjkgMi42IDIuOS0uNyA0LjktMi42IDQuNi00LjYtLjMtMS45LTMtMy4yLTUuOS0yLjl6TTI0NC44IDhDMTA2LjEgOCAwIDExMy4zIDAgMjUyYzAgMTEwLjkgNjkuOCAyMDUuOCAxNjkuNSAyMzkuMiAxMi44IDIuMyAxNy4zLTUuNiAxNy4zLTEyLjEgMC02LjItLjMtNDAuNC0uMy02MS40IDAgMC03MCAxNS04NC43LTI5LjggMCAwLTExLjQtMjkuMS0yNy44LTM2LjYgMCAwLTIyLjktMTUuNyAxLjYtMTUuNCAwIDAgMjQuOSAyIDM4LjYgMjUuOCAyMS45IDM4LjYgNTguNiAyNy41IDcyLjkgMjAuOSAyLjMtMTYgOC44LTI3LjEgMTYtMzMuNy01NS45LTYuMi0xMTIuMy0xNC4zLTExMi4zLTExMC41IDAtMjcuNSA3LjYtNDEuMyAyMy42LTU4LjktMi42LTYuNS0xMS4xLTMzLjMgMi42LTY3LjkgMjAuOS02LjUgNjkgMjcgNjkgMjcgMjAtNS42IDQxLjUtOC41IDYyLjgtOC41czQyLjggMi45IDYyLjggOC41YzAgMCA0OC4xLTMzLjYgNjktMjcgMTMuNyAzNC43IDUuMiA2MS40IDIuNiA2Ny45IDE2IDE3LjcgMjUuOCAzMS41IDI1LjggNTguOSAwIDk2LjUtNTguOSAxMDQuMi0xMTQuOCAxMTAuNSA5LjIgNy45IDE3IDIyLjkgMTcgNDYuNCAwIDMzLjctLjMgNzUuNC0uMyA4My42IDAgNi41IDQuNiAxNC40IDE3LjMgMTIuMUM0MjguMiA0NTcuOCA0OTYgMzYyLjkgNDk2IDI1MiA0OTYgMTEzLjMgMzgzLjUgOCAyNDQuOCA4ek05Ny4yIDM1Mi45Yy0xLjMgMS0xIDMuMy43IDUuMiAxLjYgMS42IDMuOSAyLjMgNS4yIDEgMS4zLTEgMS0zLjMtLjctNS4yLTEuNi0xLjYtMy45LTIuMy01LjItMXptLTEwLjgtOC4xYy0uNyAxLjMuMyAyLjkgMi4zIDMuOSAxLjYgMSAzLjYuNyA0LjMtLjcuNy0xLjMtLjMtMi45LTIuMy0zLjktMi0uNi0zLjYtLjMtNC4zLjd6bTMyLjQgMzUuNmMtMS42IDEuMy0xIDQuMyAxLjMgNi4yIDIuMyAyLjMgNS4yIDIuNiA2LjUgMSAxLjMtMS4zLjctNC4zLTEuMy02LjItMi4yLTIuMy01LjItMi42LTYuNS0xem0tMTEuNC0xNC43Yy0xLjYgMS0xLjYgMy42IDAgNS45IDEuNiAyLjMgNC4zIDMuMyA1LjYgMi4zIDEuNi0xLjMgMS42LTMuOSAwLTYuMi0xLjQtMi4zLTQtMy4zLTUuNi0yeiIvPjwvc3ZnPg==" />
+    </a>
+    <a href="https://godotengine.org/asset-library/asset/763">
+      <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMjQiIHdpZHRoPSIxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmZmYiPjxwYXRoIGQ9Im00MTcuNjE1MjMgNzYuODc1Yy00Mi4zOTIwMyA5LjQyNDE1MS04NC4zMjY3MSAyMi41NDQ5NC0xMjMuNjQyNTcgNDIuMzMzOTguODk5MTIgMzQuNzE2MTggMy4xNDM2MiA2Ny45Nzk2NyA3LjY5MzM2IDEwMS43Njc1OC0xNS4yNjg0NiA5Ljc4MjE0LTMxLjMxNTA3IDE4LjE3NzU3LTQ1LjU3NjE4IDI5LjYyODkxLTE0LjQ5MDA1IDExLjE0NzQ3LTI5LjI4OTYgMjEuODEyMzEtNDIuNDEwMTUgMzQuODQ5NjEtMjYuMjExOTYtMTcuMzM3MjgtNTMuOTU0NjctMzMuNjI5OS04Mi41MzUxNi00OC4wMTE3Mi0zMC44MDc0OCAzMy4xNTUyLTU5LjYxMzI5IDY4Ljk0MDA2LTgzLjE0NDUzIDEwOC45ODQzNyAxOC40OTMwNTcgMjkuMDI4NzcgMzguMzI5NDkgNTguMjA1NjkgNTYuNjk5MjIgODAuOTU4OTl2MTk3Ljc4MzIgMjUuMTIxMSAyMi44NjEzMmMuNDQ5NTYuMDA0MTcuODk4MzUuMDIwODggMS4zNDM3NS4wNjI1bDE1MC42Njk5MiAxNC41MjczNWM3Ljg5MjMxLjc2MTc2IDE0LjA3NzQ5IDcuMTE0NDggMTQuNjI2OTUgMTUuMDIzNDNsNC42NDY0OSA2Ni41MDk3NyAxMzEuNDI5NjkgOS4zNzg5MSA5LjA1NDY4LTYxLjM4NjcyYzEuMTczODYtNy45NTg5MSA4LjAwMDI5LTEzLjg1NzQyIDE2LjA1MDc4LTEzLjg1NzQyaDE1OC45NjA5NGM4LjA0NjMzIDAgMTQuODczMDIgNS44OTg1MSAxNi4wNDY4OCAxMy44NTc0Mmw5LjA1NDY4IDYxLjM4NjcyIDEzMS40MzM2LTkuMzc4OTEgNC42NDI1OC02Ni41MDk3N2MuNTUzNjItNy45MDg5NSA2LjczNDY0LTE0LjI1NzUxIDE0LjYyNjk1LTE1LjAyMzQzbDE1MC42MTEzMy0xNC41MjczNWMuNDQ1NC0uMDQxNjIuODkwMjgtLjA1ODMzIDEuMzM5ODQtLjA2MjV2LTE5LjYxMTMybC4wNjI1LS4wMTk1NHYtMjI2LjEzNDc2YzIxLjIxNjUtMjYuNzA5MjggNDEuMzA2ODQtNTYuMTcxNSA1Ni42OTkyMi04MC45NTg5OS0yMy41MjI5MS00MC4wNDQzMS01Mi4zNDQ4Ni03NS44MjkxNy04My4xNTIzNC0xMDguOTg0MzctMjguNTcyMTcgMTQuMzgxODItNTYuMzI1MTUgMzAuNjc0NDQtODIuNTM3MTEgNDguMDExNzItMTMuMTE2MzktMTMuMDM3My0yNy44ODk1My0yMy43MDIxNC00Mi40MDAzOS0zNC44NDk2MS0xNC4yNTY5NS0xMS40NTEzNC0zMC4zMjMxOC0xOS44NDY3Ny00NS41NjI1LTI5LjYyODkxIDQuNTM3MjQtMzMuNzg3OTEgNi43ODAzLTY3LjA1MTQgNy42ODM1OS0xMDEuNzY3NTgtMzkuMzIwMDItMTkuNzg5MDQtODEuMjQ5MjctMzIuOTA5ODI5LTEyMy42NjIxMS00Mi4zMzM5OC0xNi45MzM1IDI4LjQ1OTc3LTMyLjQxOTM5IDU5LjI3OTIyLTQ1LjkwNjI1IDg5LjQwODItMTUuOTkyNzUtMi42NzIzOS0zMi4wNTk5NS0zLjY2MjAzLTQ4LjE0ODQ0LTMuODUzNTF2LS4wMjUzOWMtLjExMjM5IDAtLjIxNjc2LjAyNTM5LS4zMTI1LjAyNTM5LS4wOTk5IDAtLjIwNDc4LS4wMjUzOS0uMzA0NjgtLjAyNTM5di4wMjUzOWMtMTYuMTE3NjMuMTkxNDgtMzIuMTcxMDYgMS4xODExMi00OC4xNjc5NyAzLjg1MzUxLTEzLjQ3ODU0LTMwLjEyODk4LTI4Ljk1NTU5LTYwLjk0ODQzLTQ1LjkxNDA3LTg5LjQwODJ6bS0xMTkuMTk5MjEgMzU5LjUyMzQ0YzUwLjE1MTEzIDAgOTAuNzk4ODIgNDAuNjE3NDYgOTAuNzk4ODIgOTAuNzUxOTUgMCA1MC4xNjc3OS00MC42NDc2OSA5MC44MDg1OS05MC43OTg4MiA5MC44MDg1OS01MC4xMjYxNyAwLTkwLjc4NzExLTQwLjY0MDgtOTAuNzg3MTEtOTAuODA4NTkgMC01MC4xMzQ0OSA0MC42NjA5NC05MC43NTE5NSA5MC43ODcxMS05MC43NTE5NXptNDI3LjE3NzczIDBjNTAuMTIyIDAgOTAuNzc5MyA0MC42MTc0NiA5MC43NzkzIDkwLjc1MTk1IDAgNTAuMTY3NzktNDAuNjU3MyA5MC44MDg1OS05MC43NzkzIDkwLjgwODU5LTUwLjE1OTQ2IDAtOTAuODA2NjQtNDAuNjQwOC05MC44MDY2NC05MC44MDg1OSAwLTUwLjEzNDQ5IDQwLjY0NzE4LTkwLjc1MTk1IDkwLjgwNjY0LTkwLjc1MTk1em0tMjEzLjU5OTYxIDUzLjEwOTM3YzE2LjE0MjYxIDAgMjkuMjUzOTEgMTEuOTA4MTYgMjkuMjUzOTEgMjYuNTYwNTV2ODMuNTg5ODRjMCAxNC42NjQ4OC0xMy4xMTEzIDI2LjU2MjUtMjkuMjUzOTEgMjYuNTYyNS0xNi4xNDI2IDAtMjkuMjI2NTYtMTEuODk3NjItMjkuMjI2NTYtMjYuNTYyNXYtODMuNTg5ODRjMC0xNC42NTIzOSAxMy4wODM5Ni0yNi41NjA1NSAyOS4yMjY1Ni0yNi41NjA1NXoiIHN0cm9rZS13aWR0aD0iNC4xNjI2MSIvPjxwYXRoIGQ9Im0wIDAtMS4xMjEtMTYuMDYzYy0uMTM1LTEuOTM2LTEuNjc1LTMuNDc3LTMuNjExLTMuNjE2bC0zOC41NTUtMi43NTFjLS4wOTQtLjAwNy0uMTg4LS4wMS0uMjgxLS4wMS0xLjkxNiAwLTMuNTY5IDEuNDA2LTMuODUyIDMuMzNsLTIuMjExIDE0Ljk5NGgtMzEuNDU5bC0yLjIxMS0xNC45OTRjLS4yOTctMi4wMTgtMi4xMDEtMy40NjktNC4xMzMtMy4zMmwtMzguNTU1IDIuNzUxYy0xLjkzNi4xMzktMy40NzYgMS42OC0zLjYxMSAzLjYxNmwtMS4xMjEgMTYuMDYzLTMyLjU0NyAzLjEzOGMuMDE1LTMuNDk4LjA2LTcuMzMuMDYtOC4wOTMgMC0zNC4zNzQgNDMuNjA1LTUwLjg5NiA5Ny43ODEtNTEuMDg2aC4wNjYuMDY3YzU0LjE3Ni4xOSA5Ny43NjYgMTYuNzEyIDk3Ljc2NiA1MS4wODYgMCAuNzc3LjA0NyA0LjU5My4wNjMgOC4wOTN6IiB0cmFuc2Zvcm09Im1hdHJpeCg0LjE2MjYxMSAwIDAgLTQuMTYyNjExIDc4NC4wNzE0NCA3MTguNzIzMTIxKSIvPjxwYXRoIGQ9Im0wIDBjMC03Ljk5NC02LjQ3OS0xNC40NzMtMTQuNDc5LTE0LjQ3My03Ljk5NiAwLTE0LjQ3OSA2LjQ3OS0xNC40NzkgMTQuNDczczYuNDgzIDE0LjQ3OSAxNC40NzkgMTQuNDc5YzggMCAxNC40NzktNi40ODUgMTQuNDc5LTE0LjQ3OSIgdHJhbnNmb3JtPSJtYXRyaXgoNC4xNjI2MTEgMCAwIC00LjE2MjYxMSAzNjcuMzY2ODYgNTMyLjUzNzA3MSkiLz48cGF0aCBkPSJtMCAwYzAtNy45OTQgNi40NzctMTQuNDczIDE0LjQ3MS0xNC40NzMgOC4wMDIgMCAxNC40NzkgNi40NzkgMTQuNDc5IDE0LjQ3M3MtNi40NzcgMTQuNDc5LTE0LjQ3OSAxNC40NzljLTcuOTk0IDAtMTQuNDcxLTYuNDg1LTE0LjQ3MS0xNC40NzkiIHRyYW5zZm9ybT0ibWF0cml4KDQuMTYyNjExIDAgMCAtNC4xNjI2MTEgNjU2LjY0MDU2IDUzMi41MzcwNzEpIi8+PC9nPjwvc3ZnPgo=" />
+    </a>
+  </nav>
+  <div class="teapot">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+  </div>
+  <main>
+    <article id="about">
+      <h2>
+        About
+      </h2>
+      <figure class="right">
+        <img
+          src="nium.gif" 
+          alt="NIUM gameplay"
+          style="width: 294px"
+        />
+        <figcaption>NIUM. Does <b>not</b> use Shader Stacker but features sprite stacking.</figcaption>
+      </figure>
+      <p>
+        Sprite stacking is a 2.5D technique done by drawing cross sections of a 3D object with
+        slight offset between each layer.
+      </p>
+      <p>
+        Seen sporatically in many 2D indie games, the main motivation for this project was from
+        seeing <a href="https://juegosrancheros.itch.io/fantastic-arcade-2016">NIUM</a>. A demo game
+        by <a href="https://twitter.com/OjiroFumoto">OjiroFumoto</a> and 
+        <a href="https://twitter.com/deadlyyucca">deadlyyucca</a>. The project was ultimately
+        <a href="https://twitter.com/OjiroFumoto/status/839648568986107905">abandoned</a>.
+      </p>
+      <p>
+        <a href="https://twitter.com/KarlTheCool">I</a> started developing this plugin in 2020 as a 
+        north star for learning how to make shaders. Since then, I have been inspired to get back into 
+        game development and will receive patching in new tools as I make them for myself.
+      </p>
+    </article>
+    <hr />
+    <article>
+      <h2>Documentation</h2>
+      <h3 style="display:flex;align-items:center;gap:0.5em">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 10.5C11.1406 10.3428 9.36949 11.517 8 11.5C6.2991 11.4789 4.9464 10.3047 4.5 10.5L1.45455 11.8636C0.648728 12.2162 0.648721 12.7838 1.45455 13.1364L6.54546 15.3636C7.35127 15.7162 8.64872 15.7162 9.45455 15.3636L14.5455 13.1364C15.3513 12.7838 15.3513 12.2162 14.5455 11.8636L11.5 10.5ZM6.54546 10.9091C6.94837 11.0854 6.94837 11.3692 6.54546 11.5455L5.81818 11.8636C5.41527 12.0399 4.76655 12.0399 4.36364 11.8636C3.96073 11.6874 3.96073 11.4035 4.36364 11.2273L5.09091 10.9091C5.49382 10.7328 6.14255 10.7328 6.54546 10.9091ZM11.6364 13.1364C12.0393 13.3126 12.0393 13.5965 11.6364 13.7727L10.9091 14.0909C10.5062 14.2672 9.85746 14.2672 9.45455 14.0909C9.05164 13.9146 9.05164 13.6308 9.45455 13.4545L10.1818 13.1364C10.5847 12.9601 11.2335 12.9601 11.6364 13.1364ZM4.36364 12.5L8 14.0909C7.74469 14.2027 7.40982 14.2757 7.02907 14.3026C6.64832 14.3296 6.23511 14.3095 5.83098 14.2444C5.42692 14.1793 5.04618 14.0716 4.72702 13.9319C4.40786 13.7923 4.16154 13.6257 4.0128 13.4489C3.86404 13.2721 3.81815 13.0914 3.87973 12.9248C3.94132 12.7582 4.10821 12.6117 4.36364 12.5Z" fill="#D695F7"/>
+          <path d="M11.5 6.5C11.1406 6.34275 9.36949 7.51697 8 7.5C6.2991 7.47892 4.9464 6.3047 4.5 6.5L1.45455 7.86364C0.648728 8.21618 0.648721 8.78382 1.45455 9.13636L6.54546 11.3636C7.35127 11.7162 8.64872 11.7162 9.45455 11.3636L14.5455 9.13636C15.3513 8.78382 15.3513 8.21619 14.5455 7.86364L11.5 6.5ZM6.54546 6.90909C6.94837 7.08536 6.94837 7.36918 6.54546 7.54545L5.81818 7.86364C5.41527 8.03991 4.76655 8.03991 4.36364 7.86364C3.96073 7.68736 3.96073 7.40355 4.36364 7.22727L5.09091 6.90909C5.49382 6.73282 6.14255 6.73282 6.54546 6.90909ZM11.6364 9.13636C12.0393 9.31264 12.0393 9.59645 11.6364 9.77273L10.9091 10.0909C10.5062 10.2672 9.85746 10.2672 9.45455 10.0909C9.05164 9.91464 9.05164 9.63082 9.45455 9.45455L10.1818 9.13636C10.5847 8.96009 11.2335 8.96009 11.6364 9.13636ZM4.36364 8.5L8 10.0909C7.74469 10.2027 7.40982 10.2757 7.02907 10.3026C6.64832 10.3296 6.23511 10.3095 5.83098 10.2444C5.42692 10.1793 5.04618 10.0716 4.72702 9.93193C4.40786 9.7923 4.16154 9.62572 4.0128 9.44895C3.86404 9.27214 3.81815 9.09136 3.87973 8.92478C3.94132 8.7582 4.10821 8.6117 4.36364 8.5Z" fill="#D695F7"/>
+          <path d="M9.45455 1.63636C8.64873 1.28382 7.35128 1.28381 6.54545 1.63636L1.45455 3.86364C0.648728 4.21618 0.64872 4.78382 1.45455 5.13636L6.54545 7.36364C7.35127 7.71618 8.64872 7.71619 9.45455 7.36364L14.5455 5.13636C15.3513 4.78382 15.3513 4.21619 14.5455 3.86364L9.45455 1.63636ZM6.54545 2.90909C6.94836 3.08536 6.94836 3.36918 6.54545 3.54545L5.81818 3.86364C5.41527 4.03991 4.76655 4.03991 4.36364 3.86364C3.96073 3.68736 3.96073 3.40355 4.36364 3.22727L5.09091 2.90909C5.49382 2.73282 6.14255 2.73282 6.54545 2.90909ZM11.6364 5.13636C12.0393 5.31264 12.0393 5.59645 11.6364 5.77273L10.9091 6.09091C10.5062 6.26718 9.85745 6.26718 9.45455 6.09091C9.05164 5.91464 9.05164 5.63082 9.45455 5.45455L10.1818 5.13636C10.5847 4.96009 11.2335 4.96009 11.6364 5.13636ZM4.36364 4.5L8 6.09091C7.74469 6.20266 7.40982 6.27567 7.02907 6.30262C6.64832 6.32956 6.23511 6.30948 5.83098 6.2444C5.42692 6.17933 5.04618 6.07156 4.72702 5.93193C4.40786 5.7923 4.16154 5.62572 4.0128 5.44895C3.86404 5.27214 3.81814 5.09136 3.87973 4.92478C3.94132 4.7582 4.10821 4.6117 4.36364 4.5Z" fill="#D695F7"/>
+        </svg>          
+        SpriteStack
+      </h3>
+      <table>
+        <tr>
+          <th>
+            Property
+          </th>
+          <th>
+            type
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+        <tr>
+          <td>
+            sprite_sheet
+          </td>
+          <td>
+            Texture2D
+          </td>
+          <td>
+            Single column sprite sheet
+          </td>
+        </tr>
+        <tr>
+          <td>
+            layers
+          </td>
+          <td>
+            int
+          </td>
+          <td>
+            Number of rows in the sprite sheet
+          </td>
+        </tr>
+        <tr>
+          <td>
+            z
+          </td>
+          <td>
+            int
+          </td>
+          <td>
+            Dictates how high or low the sprite stack is relative to the "floor"
+          </td>
+        </tr>
+        <tr>
+          <td>
+            yaw
+          </td>
+          <td>
+            float
+          </td>
+          <td>
+            Rotates the "up direction"
+          </td>
+        </tr>
+        <tr>
+          <td>
+            pitch
+          </td>
+          <td>
+            float
+          </td>
+          <td>
+            Amount of space between layers
+          </td>
+        </tr>
+        <tr>
+          <td>
+            static_yaw
+          </td>
+          <td>
+            bool
+          </td>
+          <td>
+            Do not automatically adjust yaw to be towards the top of the viewport
+          </td>
+        </tr>
+        <tr>
+          <td>
+            static_z
+          </td>
+          <td>
+            bool
+          </td>
+          <td>
+            Ignore z sorting from any <code>StackCamera</code> nodes in the same viewport
+          </td>
+        </tr>
+      </table>
+      <h3 style="display:flex;align-items:center;gap:0.5em">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_4_2)">
+          <path d="M14 12.5C13.6978 12.3489 12.3022 12.3489 12 12.5L10.5455 13.2273C10.2433 13.3784 10.2433 13.6216 10.5455 13.7727L12.4545 14.7273C12.7567 14.8784 13.2433 14.8784 13.5455 14.7273L15.4545 13.7727C15.7567 13.6216 15.7567 13.3784 15.4545 13.2273L14 12.5ZM12.4545 12.8182C12.6056 12.8937 12.6056 13.0154 12.4545 13.0909L12.1818 13.2273C12.0307 13.3028 11.7875 13.3028 11.6364 13.2273C11.4853 13.1517 11.4853 13.0301 11.6364 12.9545L11.9091 12.8182C12.0602 12.7426 12.3035 12.7426 12.4545 12.8182ZM14.3636 13.7727C14.5147 13.8483 14.5147 13.9699 14.3636 14.0455L14.0909 14.1818C13.9398 14.2574 13.6965 14.2574 13.5455 14.1818C13.3944 14.1063 13.3944 13.9846 13.5455 13.9091L13.8182 13.7727C13.9693 13.6972 14.2125 13.6972 14.3636 13.7727ZM11.6364 13.5L13 14.1818C12.9043 14.2297 12.7787 14.261 12.6359 14.2726C12.4931 14.2841 12.3382 14.2755 12.1866 14.2476C12.0351 14.2197 11.8923 14.1735 11.7726 14.1137C11.6529 14.0538 11.5606 13.9825 11.5048 13.9067C11.449 13.8309 11.4318 13.7534 11.4549 13.682C11.478 13.6107 11.5406 13.5479 11.6364 13.5Z" fill="#D695F7"/>
+          <path d="M13.5455 10.2727C13.2433 10.1216 12.7567 10.1216 12.4545 10.2727L10.5455 11.2273C10.2433 11.3784 10.2433 11.6216 10.5455 11.7727L12.4545 12.7273C12.7567 12.8784 13.2433 12.8784 13.5455 12.7273L15.4545 11.7727C15.7567 11.6216 15.7567 11.3784 15.4545 11.2273L13.5455 10.2727ZM12.4545 10.8182C12.6056 10.8937 12.6056 11.0154 12.4545 11.0909L12.1818 11.2273C12.0307 11.3028 11.7875 11.3028 11.6364 11.2273C11.4853 11.1517 11.4853 11.0301 11.6364 10.9545L11.9091 10.8182C12.0602 10.7426 12.3035 10.7426 12.4545 10.8182ZM14.3636 11.7727C14.5147 11.8483 14.5147 11.9699 14.3636 12.0455L14.0909 12.1818C13.9398 12.2574 13.6965 12.2574 13.5455 12.1818C13.3944 12.1063 13.3944 11.9846 13.5455 11.9091L13.8182 11.7727C13.9693 11.6972 14.2125 11.6972 14.3636 11.7727ZM11.6364 11.5L13 12.1818C12.9043 12.2297 12.7787 12.261 12.6359 12.2726C12.4931 12.2841 12.3382 12.2755 12.1866 12.2476C12.0351 12.2197 11.8923 12.1735 11.7726 12.1137C11.6529 12.0538 11.5606 11.9825 11.5048 11.9067C11.449 11.8309 11.4318 11.7534 11.4549 11.682C11.478 11.6107 11.5406 11.5479 11.6364 11.5Z" fill="#D695F7"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.96107 2.80252C7.51521 2.28748 8.24348 2.00089 9 2.00002C9.79565 2.00002 10.5587 2.31608 11.1213 2.87869C11.6839 3.4413 12 4.20438 12 5.00002C11.9992 5.42118 11.9098 5.83741 11.7375 6.2217C11.5652 6.606 11.3139 6.94973 11 7.23049V9H10C9.44772 9 9 9.44772 9 10V13H4C3.44599 13 3 12.554 3 12V9.82424C2.41576 9.61768 1.90982 9.23536 1.5517 8.72964C1.19358 8.22392 1.00085 7.6197 1 7.00002C1 6.20438 1.31607 5.4413 1.87868 4.87869C2.44129 4.31608 3.20435 4.00002 4 4.00002C4.74375 4.00083 5.46068 4.27783 6.0117 4.77737C6.06783 4.02293 6.40693 3.31755 6.96107 2.80252ZM14 9V7.00002L11 9H14Z" fill="#D695F7"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_4_2">
+          <rect width="16" height="16" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>
+        StackCamera
+      </h3>
+      <p>
+        Currently has the same properties as
+        <a href="https://docs.godotengine.org/en/stable/classes/class_camera2d.html">Camera2d</a>.
+      </p>
+      <p>
+        Gets all Shader Stacker nodes in the same viewport and sorts their <code>z_index</code>
+        Nodes closer to the top of the screen are drawn first.
+      </p>
+      <p>
+        You can opt in any node to be sorted with:
+        <pre>
+          <code>
+func ready():
+    var id = get_viewport().get_viewport_rid().get_id()
+    add_to_group("zsort{viewportRID}".format({ "viewportRID": id }))
+          </code>
+        </pre>
+      </p>
+      <p>
+        You may want to set <code>zoom.y = 0.5</code> or some other fraction of
+        <code>zoom.x</code>. This will
+        <a href="https://twitter.com/OjiroFumoto/status/1229244684511240197">
+          "get everything vertically squashed and looking isometric"
+        </a>. As a consequence, all regular 2d nodes will appear squished. <code>Reset2d</code> will
+        counteract this.
+      </p>
+      <h3 style="display:flex;align-items:center;gap:0.5em">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_213_2)">
+          <path d="M9.29167 10.1667V11.9167H11.0417" stroke="#D695F7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M11.0451 14.6879C11.5188 15.0033 12.0822 15.1561 12.6504 15.1234C13.2186 15.0907 13.7608 14.8742 14.1952 14.5066C14.6297 14.139 14.9329 13.6401 15.0591 13.0852C15.1854 12.5303 15.1279 11.9493 14.8953 11.4299C14.6628 10.9105 14.2677 10.4807 13.7696 10.2054C13.2715 9.93005 12.6974 9.82403 12.1339 9.90333C11.5703 9.98262 11.0478 10.2429 10.645 10.645L9.29167 11.9167" stroke="#D695F7" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.75736 3.75736C4.88258 2.63214 6.4087 2 8 2C9.5913 2 11.1174 2.63214 12.2426 3.75736C13.3679 4.88258 14 6.4087 14 8C14 8.33733 13.9716 8.67173 13.9161 9H11.873C11.9566 8.67606 12 8.34027 12 8C12 6.93913 11.5786 5.92172 10.8284 5.17157C10.0783 4.42143 9.06087 4 8 4C6.93913 4 5.92172 4.42143 5.17157 5.17157C4.42143 5.92172 4 6.93913 4 8C4 9.06087 4.42143 10.0783 5.17157 10.8284C5.92172 11.5786 6.93913 12 8 12V14C6.4087 14 4.88258 13.3679 3.75736 12.2426C2.63214 11.1174 2 9.5913 2 8C2 6.4087 2.63214 4.88258 3.75736 3.75736Z" fill="#D695F7"/>
+          <defs>
+          <clipPath id="clip0_213_2">
+          <rect width="7" height="7" fill="white" transform="translate(9 9)"/>
+          </clipPath>
+          </defs>
+        </svg>  
+        Reset2d
+      </h3>
+      <p>
+        Currently has the same properties as
+        <a href="https://docs.godotengine.org/en/stable/classes/class_node2d.html">Node2d</a>.
+      </p>
+      <p>
+        Transforms itself such that any child <code>Node2d</code> will look as expected before
+        sprite stacking.
+      </p>
+      <p>
+        Ex. a <code>Sprite2d</code> alone will look like a floor tile while a child of
+        <code>Reset2d</code> one will look like a billboard.
+      </p>
+      <p>
+        Be careful when moving this node in the editor, as it is very easy to move child nodes by
+        mistake and cause undesired effects.
+      </p>
+    </article>
+    <hr />
+  </main>
+  <footer>
+    <a style="float:right" href="https://github.com/KarlTheCool/Shader-Stacker/tree/master/docs">[Source Code]</a>
+    <a href="https://www.dafont.com/daydream-3.font">Daydream</a> by <a href="https://linktr.ee/doublegum">DoubleGum</a> (Personal Use)
+    <br />
+    <a href="https://www.dafont.com/edit-undo-line.font">Edit Undo Line</a> by <a href="http://www.aenigmafonts.com/">Brian Kent</a> (Freeware)
+    <br />
+    CSS forked from <a href="https://github.com/oxalorg/sakura">sakura-vader</a> (MIT)
+  </footer>
 </body>
+
 </html>
