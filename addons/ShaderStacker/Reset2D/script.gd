@@ -2,9 +2,8 @@ extends Node2D
 
 
 func _ready():
-	var viewport = get_viewport()
-	var id = viewport.get_viewport_rid().get_id()
-	add_to_group("ShaderStacker{viewportRID}".format({ "viewportRID": id }))
+	var id = get_viewport().get_viewport_rid().get_id()
+	add_to_group("zsort{viewportRID}".format({ "viewportRID": id }))
 
 
 func _process(delta):

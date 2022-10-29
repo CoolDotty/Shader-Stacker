@@ -6,7 +6,7 @@ var stackGroupName
 
 func _ready():
 	var id = get_viewport().get_viewport_rid().get_id()
-	stackGroupName = "ShaderStacker{viewportRID}".format({ "viewportRID": id })
+	stackGroupName = "zsort{viewportRID}".format({ "viewportRID": id })
 
 
 func _process(delta):
@@ -26,4 +26,4 @@ func _process(delta):
 		z += 1
 
 func screen_top_down_sort(a, b):
-	return a.position.rotated(global_rotation).y < b.position.rotated(global_rotation).y
+	return a.position.rotated(-global_rotation).y < b.position.rotated(-global_rotation).y
