@@ -71,14 +71,6 @@ figure > figcaption {
   font-style: italic;
 }
 
-code {
-  display: inline-block;
-}
-
-pre > code {
-  display: inline;
-}
-
 footer {
   font-family: monospace;
   font-size: 0.8em;
