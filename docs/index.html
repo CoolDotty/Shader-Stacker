@@ -342,21 +342,53 @@ func ready():
         </svg>  
         Reset2d
       </h3>
-      <p>
-        Currently has the same properties as
-        <a href="https://docs.godotengine.org/en/stable/classes/class_node2d.html">Node2d</a>.
-      </p>
+      <table>
+        <tr>
+          <th>
+            Property
+          </th>
+          <th>
+            type
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+        <tr>
+          <td>
+            reset_rotation
+          </td>
+          <td>
+            bool
+          </td>
+          <td>
+            Inverse rotation transforms from the current camera
+          </td>
+        </tr>
+        <tr>
+          <td>
+            reset_scale
+          </td>
+          <td>
+            bool
+          </td>
+          <td>
+            Inverse scale transforms from the current camera
+          </td>
+        </tr>
+      </table>
       <p>
         Transforms itself such that any child <code>Node2d</code> will look as expected before
         sprite stacking.
       </p>
       <p>
         Ex. a <code>Sprite2d</code> alone will look like a floor tile while a child of
-        <code>Reset2d</code> one will look like a billboard.
+        <code>Reset2d</code> will look
+        <a href="https://twitter.com/KarlTheCool/status/1582244962498129920">like a billboard.</a>
       </p>
       <p>
         Be careful when moving this node in the editor, as it is very easy to move child nodes by
-        mistake and cause undesired effects.
+        mistake causing z sorting to work unexpectedly.
       </p>
     </article>
     <hr />

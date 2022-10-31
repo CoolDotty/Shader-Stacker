@@ -327,3 +327,7 @@ label, legend, fieldset {
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
+
+table {
+  margin-bottom: 2.5rem;
+}
