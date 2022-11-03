@@ -2,8 +2,8 @@
 extends Node2D
 
 @export_category("Sprite Stack")
-@export var sprite_sheet: Texture2D = null
-@export var layers: int = 0
+@export var sprite_sheet: Texture = null
+@export var layers: int = 1
 @export var z: int = 0
 @export_range(0, 360, 0.01, "radians") var yaw: float = 0.0
 @export_range(0, 16, 0.1, "suffix:px") var pitch: float = 1.0
@@ -31,7 +31,7 @@ func _draw():
 	
 	var cam = get_viewport().get_camera_2d()
 	var cam_rot = (cam.global_rotation if cam and not static_yaw else 1.0)
-	var squish = 1 / (cam.zoom.y if cam else 1.0)
+	var squish = cam.zoom.x / (cam.zoom.y if cam else 1.0)
 	
 	var up_vector = Vector2(0, pitch * -1).rotated(yaw + cam_rot) * squish
 	for i in range(0, layers * squish + 1):
