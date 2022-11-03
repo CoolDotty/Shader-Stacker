@@ -3,10 +3,10 @@ extends Control
 
 @onready var OpenDialog = $OpenDialog
 @onready var FilePathInput = $UI/Block/FilePathInput
-
-# Sprite Stack
 @onready var SpriteStack = $SpritePreview/SubViewport/SpriteStack
 @onready var StackCamera = $SpritePreview/SubViewport/StackCamera
+
+# Sprite Stack
 @onready var LayersInput = $UI/Block/SpriteStack/GridContainer/LayersInput
 @onready var ZInput = $UI/Block/SpriteStack/GridContainer/ZInput
 @onready var YawInput = $UI/Block/SpriteStack/GridContainer/YawInput
