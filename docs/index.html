@@ -188,6 +188,13 @@
     <hr />
     <article>
       <h2>Documentation</h2>
+      <h3>Preview Tool</h3>
+      <p>
+        Shader Stacker now comes with a tool for live previewing sprite sheets. You can open it by
+        running <code>PreviewTool/PreviewTool.tscn</code>. It will automatically poll files every
+        second for changes.
+      </p>
+      <img src="previewtool.png" alt="Shader Stacker preview tool screenshot" />
       <h3 style="display:flex;align-items:center;gap:0.5em">
         <svg width="2em" height="2em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.5 10.5C11.1406 10.3428 9.36949 11.517 8 11.5C6.2991 11.4789 4.9464 10.3047 4.5 10.5L1.45455 11.8636C0.648728 12.2162 0.648721 12.7838 1.45455 13.1364L6.54546 15.3636C7.35127 15.7162 8.64872 15.7162 9.45455 15.3636L14.5455 13.1364C15.3513 12.7838 15.3513 12.2162 14.5455 11.8636L11.5 10.5ZM6.54546 10.9091C6.94837 11.0854 6.94837 11.3692 6.54546 11.5455L5.81818 11.8636C5.41527 12.0399 4.76655 12.0399 4.36364 11.8636C3.96073 11.6874 3.96073 11.4035 4.36364 11.2273L5.09091 10.9091C5.49382 10.7328 6.14255 10.7328 6.54546 10.9091ZM11.6364 13.1364C12.0393 13.3126 12.0393 13.5965 11.6364 13.7727L10.9091 14.0909C10.5062 14.2672 9.85746 14.2672 9.45455 14.0909C9.05164 13.9146 9.05164 13.6308 9.45455 13.4545L10.1818 13.1364C10.5847 12.9601 11.2335 12.9601 11.6364 13.1364ZM4.36364 12.5L8 14.0909C7.74469 14.2027 7.40982 14.2757 7.02907 14.3026C6.64832 14.3296 6.23511 14.3095 5.83098 14.2444C5.42692 14.1793 5.04618 14.0716 4.72702 13.9319C4.40786 13.7923 4.16154 13.6257 4.0128 13.4489C3.86404 13.2721 3.81815 13.0914 3.87973 12.9248C3.94132 12.7582 4.10821 12.6117 4.36364 12.5Z" fill="#D695F7"/>
@@ -306,7 +313,7 @@
         <a href="https://docs.godotengine.org/en/stable/classes/class_camera2d.html">Camera2d</a>.
       </p>
       <p>
-        Gets all Shader Stacker nodes in the same viewport and sorts their <code>z_index</code>
+        Gets all Shader Stacker nodes in the same viewport and sorts their <code>z_index</code>.
         Nodes closer to the top of the screen are drawn first.
       </p>
       <p>
