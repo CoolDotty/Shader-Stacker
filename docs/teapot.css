@@ -1,0 +1,260 @@
+.teapot {
+  position: relative;
+  inset: 0;
+  z-index: -1;
+
+  width: 100%;
+  aspect-ratio: 126 / 80;
+
+  contain: paint;
+}
+
+.teapot > .layer {
+  position: absolute;
+  inset: 0;
+
+  background-image: url("teapot_sheet.png");
+
+  background-size: 100% 6100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+@keyframes teapot {
+  0% {
+    transform:
+      /* Base transforms for non-animated teapot */
+      var(--transform)
+      /* Spread out layers */
+      translate(0, calc((var(--i) - 30) * 0px))
+      /* Spinny */
+      rotate(0deg);
+  }
+  25% {
+    transform: 
+      var(--transform) 
+      translate(0, calc((var(--i) - 30) * 0px))
+      rotate(90deg);
+  }
+  50% {
+    transform: 
+      var(--transform) 
+      translate(0, calc((var(--i) - 30) * 100px))
+      rotate(180deg);
+  }
+  75% {
+    transform: 
+      var(--transform) 
+      translate(0, calc((var(--i) - 30) * 100px))
+      rotate(270deg);
+  }
+  100% {
+    transform: 
+      var(--transform) 
+      translate(0, calc((var(--i) - 30) * 0px))
+      rotate(360deg);
+  }
+}
+
+.teapot > .layer {
+  background-position: 0 calc(100% / 60 * var(--i));
+  --transform: scale(0.5) translate(0, -50%) translate(0, calc(100% / 80 * var(--i)));
+  animation-duration: 20s;
+  animation-name: teapot;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+/*
+[...Array(61)].map((_, i) => `.teapot > .layer:nth-child(${i + 1}) {
+    --i: ${61 - i}
+    }`).join('\n') 
+*/
+.teapot > .layer:nth-child(1) {
+  --i: 61
+}
+.teapot > .layer:nth-child(2) {
+  --i: 60
+}
+.teapot > .layer:nth-child(3) {
+  --i: 59
+}
+.teapot > .layer:nth-child(4) {
+  --i: 58
+}
+.teapot > .layer:nth-child(5) {
+  --i: 57
+}
+.teapot > .layer:nth-child(6) {
+  --i: 56
+}
+.teapot > .layer:nth-child(7) {
+  --i: 55
+}
+.teapot > .layer:nth-child(8) {
+  --i: 54
+}
+.teapot > .layer:nth-child(9) {
+  --i: 53
+}
+.teapot > .layer:nth-child(10) {
+  --i: 52
+}
+.teapot > .layer:nth-child(11) {
+  --i: 51
+}
+.teapot > .layer:nth-child(12) {
+  --i: 50
+}
+.teapot > .layer:nth-child(13) {
+  --i: 49
+}
+.teapot > .layer:nth-child(14) {
+  --i: 48
+}
+.teapot > .layer:nth-child(15) {
+  --i: 47
+}
+.teapot > .layer:nth-child(16) {
+  --i: 46
+}
+.teapot > .layer:nth-child(17) {
+  --i: 45
+}
+.teapot > .layer:nth-child(18) {
+  --i: 44
+}
+.teapot > .layer:nth-child(19) {
+  --i: 43
+}
+.teapot > .layer:nth-child(20) {
+  --i: 42
+}
+.teapot > .layer:nth-child(21) {
+  --i: 41
+}
+.teapot > .layer:nth-child(22) {
+  --i: 40
+}
+.teapot > .layer:nth-child(23) {
+  --i: 39
+}
+.teapot > .layer:nth-child(24) {
+  --i: 38
+}
+.teapot > .layer:nth-child(25) {
+  --i: 37
+}
+.teapot > .layer:nth-child(26) {
+  --i: 36
+}
+.teapot > .layer:nth-child(27) {
+  --i: 35
+}
+.teapot > .layer:nth-child(28) {
+  --i: 34
+}
+.teapot > .layer:nth-child(29) {
+  --i: 33
+}
+.teapot > .layer:nth-child(30) {
+  --i: 32
+}
+.teapot > .layer:nth-child(31) {
+  --i: 31
+}
+.teapot > .layer:nth-child(32) {
+  --i: 30
+}
+.teapot > .layer:nth-child(33) {
+  --i: 29
+}
+.teapot > .layer:nth-child(34) {
+  --i: 28
+}
+.teapot > .layer:nth-child(35) {
+  --i: 27
+}
+.teapot > .layer:nth-child(36) {
+  --i: 26
+}
+.teapot > .layer:nth-child(37) {
+  --i: 25
+}
+.teapot > .layer:nth-child(38) {
+  --i: 24
+}
+.teapot > .layer:nth-child(39) {
+  --i: 23
+}
+.teapot > .layer:nth-child(40) {
+  --i: 22
+}
+.teapot > .layer:nth-child(41) {
+  --i: 21
+}
+.teapot > .layer:nth-child(42) {
+  --i: 20
+}
+.teapot > .layer:nth-child(43) {
+  --i: 19
+}
+.teapot > .layer:nth-child(44) {
+  --i: 18
+}
+.teapot > .layer:nth-child(45) {
+  --i: 17
+}
+.teapot > .layer:nth-child(46) {
+  --i: 16
+}
+.teapot > .layer:nth-child(47) {
+  --i: 15
+}
+.teapot > .layer:nth-child(48) {
+  --i: 14
+}
+.teapot > .layer:nth-child(49) {
+  --i: 13
+}
+.teapot > .layer:nth-child(50) {
+  --i: 12
+}
+.teapot > .layer:nth-child(51) {
+  --i: 11
+}
+.teapot > .layer:nth-child(52) {
+  --i: 10
+}
+.teapot > .layer:nth-child(53) {
+  --i: 9
+}
+.teapot > .layer:nth-child(54) {
+  --i: 8
+}
+.teapot > .layer:nth-child(55) {
+  --i: 7
+}
+.teapot > .layer:nth-child(56) {
+  --i: 6
+}
+.teapot > .layer:nth-child(57) {
+  --i: 5
+}
+.teapot > .layer:nth-child(58) {
+  --i: 4
+}
+.teapot > .layer:nth-child(59) {
+  --i: 3
+}
+.teapot > .layer:nth-child(60) {
+  --i: 2
+}
+.teapot > .layer:nth-child(61) {
+  --i: 1
+}
