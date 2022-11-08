@@ -33,11 +33,11 @@ func _draw():
 	var cam_rot = (cam.global_rotation if cam and not static_yaw else 1.0)
 	var squish = cam.zoom.x / (cam.zoom.y if cam else 1.0)
 	
-	var up_vector = Vector2(0, pitch * -1).rotated(yaw + cam_rot) * squish
+	var up_vector = Vector2(0, -pitch).rotated(yaw + cam_rot) * squish
 	for i in range(0, layers + 1):
 		draw_texture_rect_region(
 				sprite_sheet,
-				Rect2(Vector2.ZERO - (base_rect.size / Vector2(2, 2)) + i * up_vector - z * up_vector,
+				Rect2(Vector2.ZERO - (base_rect.size / 2) + i * up_vector - z * up_vector,
 						base_rect.size),
 				Rect2(Vector2(0, sheet_size.y - i * layer_size.y),
 						layer_size))
