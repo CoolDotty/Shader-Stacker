@@ -34,7 +34,7 @@ func _draw():
 	var squish = cam.zoom.x / (cam.zoom.y if cam else 1.0)
 	
 	var up_vector = Vector2(0, -pitch).rotated(yaw + cam_rot) * squish
-	for i in range(0, layers + 1):
+	for i in range(1, layers + 1):
 		draw_texture_rect_region(
 				sprite_sheet,
 				Rect2(Vector2.ZERO - (base_rect.size / 2) + i * up_vector - z * up_vector,
