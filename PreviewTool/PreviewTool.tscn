@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpg0g5jcqbmwc"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://addons/ShaderStacker/SpriteStack/script.gd" id="1_17ihv"]
+[ext_resource type="Script" path="res://addons/ShaderStacker/SpriteStack/SpriteStack.gd" id="1_17ihv"]
 [ext_resource type="Script" path="res://PreviewTool/PreviewTool.gd" id="1_m6560"]
-[ext_resource type="Script" path="res://addons/ShaderStacker/StackCamera/script.gd" id="2_mja10"]
+[ext_resource type="Script" path="res://addons/ShaderStacker/StackCamera/StackCamera.gd" id="2_mja10"]
 
 [node name="PreviewTool" type="Control"]
 layout_mode = 3
