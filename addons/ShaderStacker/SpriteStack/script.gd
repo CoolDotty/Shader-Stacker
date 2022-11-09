@@ -31,7 +31,7 @@ func _draw():
 	
 	var cam = get_viewport().get_camera_2d()
 	var cam_rot = (cam.global_rotation if cam and not static_yaw else 0.0)
-	var squish = cam.zoom.x / (cam.zoom.y if cam else 1.0)
+	var squish = (cam.zoom.x / cam.zoom.y if cam else 1.0)
 	
 	var up_vector = Vector2(0, -pitch).rotated(yaw + cam_rot) * squish
 	for i in range(1, layers + 1):
