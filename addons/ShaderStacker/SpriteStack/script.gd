@@ -30,10 +30,10 @@ func _draw():
 	var base_rect = Rect2(Vector2.ZERO, layer_size)
 	
 	var cam = get_viewport().get_camera_2d()
-	var cam_rot = (cam.global_rotation if cam and not static_yaw else 0.0)
+	var cam_rot = cam.global_rotation if cam and not static_yaw and not Engine.is_editor_hint() else 0.0
 	var squish = (cam.zoom.x / cam.zoom.y if cam else 1.0)
 	
-	var up_vector = Vector2(0, -pitch).rotated(yaw + cam_rot) * squish
+	var up_vector = Vector2(0, -pitch).rotated(yaw + cam_rot - global_rotation) * squish
 	for i in range(1, layers + 1):
 		draw_texture_rect_region(
 				sprite_sheet,

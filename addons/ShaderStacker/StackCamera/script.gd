@@ -26,4 +26,4 @@ func _process(delta):
 		z += 1
 
 func screen_top_down_sort(a, b):
-	return a.position.rotated(-global_rotation).y < b.position.rotated(-global_rotation).y
+	return a.global_position.rotated(-global_rotation).y < b.global_position.rotated(-global_rotation).y
