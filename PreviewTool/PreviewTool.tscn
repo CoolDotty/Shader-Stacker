@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpg0g5jcqbmwc"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://addons/ShaderStacker/SpriteStack/script.gd" id="1_17ihv"]
+[ext_resource type="Script" path="res://addons/ShaderStacker/SpriteStack/SpriteStack.gd" id="1_17ihv"]
 [ext_resource type="Script" path="res://PreviewTool/PreviewTool.gd" id="1_m6560"]
-[ext_resource type="Script" path="res://addons/ShaderStacker/StackCamera/script.gd" id="2_mja10"]
+[ext_resource type="Script" path="res://addons/ShaderStacker/StackCamera/StackCamera.gd" id="2_mja10"]
 
 [node name="PreviewTool" type="Control"]
 layout_mode = 3
@@ -78,11 +78,48 @@ placeholder_text = "Click to open a sprite sheet ..."
 shortcut_keys_enabled = false
 middle_mouse_paste_enabled = false
 
-[node name="SpriteStack" type="VBoxContainer" parent="UI/Block"]
+[node name="Viewport" type="VBoxContainer" parent="UI/Block"]
 layout_mode = 2
 offset_top = 35.0
+offset_right = 138.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="UI/Block/Viewport"]
+layout_mode = 2
+offset_right = 138.0
+offset_bottom = 26.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Viewport"
+
+[node name="GridContainer" type="GridContainer" parent="UI/Block/Viewport"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 138.0
+offset_bottom = 61.0
+columns = 2
+
+[node name="PixelSizeLabel" type="Label" parent="UI/Block/Viewport/GridContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 67.0
+offset_bottom = 28.0
+text = "PixelSize"
+
+[node name="PixelSizeInput" type="LineEdit" parent="UI/Block/Viewport/GridContainer"]
+layout_mode = 2
+offset_left = 71.0
+offset_right = 138.063
+offset_bottom = 31.0
+size_flags_horizontal = 0
+placeholder_text = "1"
+
+[node name="SpriteStack" type="VBoxContainer" parent="UI/Block"]
+layout_mode = 2
+offset_top = 100.0
 offset_right = 122.0
-offset_bottom = 201.0
+offset_bottom = 266.0
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="UI/Block/SpriteStack"]
@@ -165,9 +202,9 @@ placeholder_text = "1.0px"
 
 [node name="StackCamera" type="VBoxContainer" parent="UI/Block"]
 layout_mode = 2
-offset_top = 205.0
+offset_top = 270.0
 offset_right = 138.0
-offset_bottom = 356.0
+offset_bottom = 421.0
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="UI/Block/StackCamera"]
@@ -252,6 +289,7 @@ placeholder_text = "1.0"
 [connection signal="timeout" from="FilePoller" to="." method="_on_file_poller_timeout"]
 [connection signal="file_selected" from="OpenDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="gui_input" from="UI/Block/FilePathInput" to="." method="_on_text_edit_gui_input"]
+[connection signal="text_changed" from="UI/Block/Viewport/GridContainer/PixelSizeInput" to="." method="_on_pixel_size_input_text_changed"]
 [connection signal="text_changed" from="UI/Block/SpriteStack/GridContainer/LayersInput" to="." method="_on_layers_input_text_changed"]
 [connection signal="text_changed" from="UI/Block/SpriteStack/GridContainer/ZInput" to="." method="_on_z_input_text_changed"]
 [connection signal="text_changed" from="UI/Block/SpriteStack/GridContainer/YawInput" to="." method="_on_yaw_input_text_changed"]

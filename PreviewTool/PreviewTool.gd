@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var SpritePreview = $SpritePreview
 @onready var OpenDialog = $OpenDialog
 @onready var FilePathInput = $UI/Block/FilePathInput
 @onready var SpriteStack = $SpritePreview/SubViewport/SpriteStack
@@ -117,3 +117,12 @@ func _on_zoom_y_input_text_changed(new_text):
 		return
 	ZoomYInput.remove_theme_color_override("font_color")
 	StackCamera.zoom.y = new_text.to_float()
+
+
+func _on_pixel_size_input_text_changed(new_text):
+	if not new_text.is_valid_int():
+		SpritePreview.stretch_shrink = LayersInput.placeholder_text.to_int()
+		SpritePreview.add_theme_color_override("font_color", Color.RED)
+		return
+	SpritePreview.remove_theme_color_override("font_color")
+	SpritePreview.stretch_shrink = new_text.to_int()
