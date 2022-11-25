@@ -34,6 +34,7 @@ func _draw():
 	var squish = (cam.zoom.x / cam.zoom.y if cam else 1.0)
 	
 	var up_vector = Vector2(0, -pitch).rotated(yaw + cam_rot - global_rotation) * squish
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2(2, 2)) # Double sized pixels because they look better
 	for i in range(1, layers + 1):
 		draw_texture_rect_region(
 				sprite_sheet,
