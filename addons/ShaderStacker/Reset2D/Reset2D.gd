@@ -15,10 +15,10 @@ func _ready():
 
 func _process(delta):
 	var cam = get_viewport().get_camera_2d()
-	var cam_rot = (cam.global_rotation if cam else 1.0)
+	var cam_rot = (cam.global_rotation if cam else 0.0)
 	var squish = 1 / (cam.zoom.y if cam else 1.0)
 	
-	var up_vector = Vector2(0, -1).rotated(cam_rot - global_rotation) * squish
+	var up_vector = Vector2(0, -1).rotated(cam_rot) * squish
 	
 	if reset_scale:
 		self.scale.y = squish
