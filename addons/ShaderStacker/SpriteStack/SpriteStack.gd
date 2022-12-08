@@ -1,5 +1,7 @@
 @tool
 extends Node2D
+class_name SpriteStack
+
 
 @export_category("Sprite Stack")
 @export var sprite_sheet: Texture = null

@@ -1,4 +1,5 @@
 extends Camera2D
+class_name StackCamera
 
 
 var stackGroupName

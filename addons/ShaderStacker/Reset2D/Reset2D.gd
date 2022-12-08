@@ -1,4 +1,5 @@
 extends Node2D
+class_name Reset2D
 
 
 @export_category("Reset2D")
