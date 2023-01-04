@@ -330,4 +330,5 @@ label, legend, fieldset {
 
 table {
   margin-bottom: 2.5rem;
+  text-align: unset;
 }

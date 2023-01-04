@@ -383,6 +383,28 @@ func ready():
             Inverse scale transforms from the current camera
           </td>
         </tr>
+        <tr>
+          <td>
+            reset_position
+          </td>
+          <td>
+            bool
+          </td>
+          <td>
+            Must be enabled for <code>z</code> to work. Will overwrite any position value so child this node to a Node2D and position that instead.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            z
+          </td>
+          <td>
+            int
+          </td>
+          <td>
+            Number of pixel "above the ground" the children appear to be
+          </td>
+        </tr>
       </table>
       <p>
         Transforms itself such that any child <code>Node2d</code> will look as expected before

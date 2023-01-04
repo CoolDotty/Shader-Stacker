@@ -1,4 +1,5 @@
 extends Camera2D
+class_name StackCamera
 
 
 var stackGroupName
@@ -7,6 +8,7 @@ var stackGroupName
 func _ready():
 	var id = get_viewport().get_viewport_rid().get_id()
 	stackGroupName = "zsort{viewportRID}".format({ "viewportRID": id })
+	self.ignore_rotation = false
 
 
 func _process(delta):
