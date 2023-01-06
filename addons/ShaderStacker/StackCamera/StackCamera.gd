@@ -27,5 +27,16 @@ func _process(delta):
 		spritestack_nodes[i].z_as_relative = false
 		z += 1
 
+func get_z_level(node):
+	var node_z = 0
+	if node is SpriteStack:
+		node_z = node.z
+	return node_z
+
 func screen_top_down_sort(a, b):
-	return a.global_position.rotated(-global_rotation).y < b.global_position.rotated(-global_rotation).y
+	var a_z = get_z_level(a)
+	var b_z = get_z_level(b)
+	if a_z != b_z:
+		return a_z > b_z
+	else:
+		return a.global_position.rotated(-global_rotation).y < b.global_position.rotated(-global_rotation).y
