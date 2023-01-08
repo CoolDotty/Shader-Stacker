@@ -29,7 +29,7 @@ func _process(delta):
 
 func get_z_level(node):
 	var node_z = 0
-	if node is SpriteStack:
+	if node is SpriteStack or node is Reset2D:
 		node_z = node.z
 	return node_z
 
