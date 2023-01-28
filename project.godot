@@ -8,34 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Node2D",
-"class": &"Reset2D",
-"language": &"GDScript",
-"path": "res://addons/ShaderStacker/Reset2D/Reset2D.gd"
-}, {
-"base": "EditorPlugin",
-"class": &"ShaderStacker",
-"language": &"GDScript",
-"path": "res://addons/ShaderStacker/init.gd"
-}, {
-"base": "Node2D",
-"class": &"SpriteStack",
-"language": &"GDScript",
-"path": "res://addons/ShaderStacker/SpriteStack/SpriteStack.gd"
-}, {
-"base": "Camera2D",
-"class": &"StackCamera",
-"language": &"GDScript",
-"path": "res://addons/ShaderStacker/StackCamera/StackCamera.gd"
-}]
-_global_script_class_icons={
-"Reset2D": "",
-"ShaderStacker": "",
-"SpriteStack": "",
-"StackCamera": ""
-}
-
 [application]
 
 config/name="ShaderStacker"
