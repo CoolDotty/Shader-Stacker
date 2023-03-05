@@ -12,7 +12,7 @@ func _ready():
 
 
 func _process(delta):
-	if not current:
+	if not enabled:
 		return
 	var tree = get_tree()
 	if not tree:
