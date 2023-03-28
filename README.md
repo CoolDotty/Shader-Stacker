@@ -1,4 +1,4 @@
-# Shader-Stacker
+<img alt="Shader Stacker" src="./logo.svg" width="600" />
 
 GPU Accelerated Sprite Stacking graphics.
 
