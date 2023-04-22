@@ -1,3 +1,5 @@
+**Hey!** [Here's a link to an extremly helpful 3D shader for sprite stacking](https://godotshaders.com/shader/pixel-perfect-sprite-stacking-edges-in-3d/). No promises when I'll package it into this repo or another one but I'm putting it here for now so it's visible.
+
 <img alt="Shader Stacker" src="./logo.svg" width="600" />
 
 GPU Accelerated Sprite Stacking graphics.
